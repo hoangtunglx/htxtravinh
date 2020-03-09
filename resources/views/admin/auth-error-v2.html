@@ -1,0 +1,59 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="utf-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+	
+	<title>Error 404: Page not found</title>
+	<meta property="og:title" content="Error 404: Page not found">
+	
+	<link rel="apple-touch-icon" sizes="144x144" href="assets/apple-touch-icon.png" />
+	<link rel="shortcut icon" href="assets/favicon.ico" />
+	<meta name="theme-color" content="#3063A0" />
+	<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Fira+Sans:400,500,600" />
+	
+	<link rel="stylesheet" href="assets/vendor/fontawesome/css/all.css" />
+	
+	<link rel="stylesheet" href="assets/stylesheets/theme.min.css" data-skin="default" />
+	<link rel="stylesheet" href="assets/stylesheets/theme-dark.min.css" data-skin="dark" />
+	<link rel="stylesheet" href="assets/stylesheets/custom.css" />
+	<script>
+		var skin = localStorage.getItem('skin') || 'default';
+var isCompact = JSON.parse(localStorage.getItem('hasCompactMenu'));
+var disabledSkinStylesheet = document.querySelector('link[data-skin]:not([data-skin="' + skin + '"])');disabledSkinStylesheet.setAttribute('rel', '');
+disabledSkinStylesheet.setAttribute('disabled', true);if (isCompact == true) document.querySelector('html').classList.add('preparing-compact-menu');
+	</script>
+</head>
+<body>
+	<!--[if lt IE 10]>
+	<div class="page-message" role="alert">You are using an <strong>outdated</strong> browser. Please <a class="alert-link" href="http://browsehappy.com/">upgrade your browser</a> to improve your experience and security.</div>
+	<![endif]-->
+	
+	<main class="empty-state empty-state-fullpage bg-black">
+		
+		<div class="empty-state-container">
+			<div class="card">
+				<div class="card-header bg-light text-left">
+					<i class="fa fa-fw fa-circle text-red"></i> <i class="fa fa-fw fa-circle text-yellow"></i> <i class="fa fa-fw fa-circle text-teal"></i>
+				</div>
+				<div class="card-body">
+					<div class="state-figure">
+						<img class="img-fluid" src="assets/images/illustration/img-2.svg" alt="" style="max-width: 320px">
+					</div>
+					<h3 class="state-header"> Page not found! </h3>
+					<p class="state-description lead"> Sorry, we've misplaced that URL or it's pointing to something that doesn't exist. </p>
+					<div class="state-action">
+						<a href="auth-error-v1.html" class="btn btn-lg btn-light"><i class="fa fa-angle-right"></i> Go Home</a>
+					</div>
+				</div>
+			</div>
+		</div>
+	</main>
+	
+	<script src="assets/vendor/jquery/jquery.min.js"></script>
+	<script src="assets/vendor/bootstrap/js/popper.min.js"></script>
+	<script src="assets/vendor/bootstrap/js/bootstrap.min.js"></script>
+	
+	<script src="assets/javascript/theme.min.js"></script>
+</body>
+</html>

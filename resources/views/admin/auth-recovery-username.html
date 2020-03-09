@@ -1,0 +1,94 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="utf-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+	
+	<title>Forgot Username</title>
+	<meta property="og:title" content="Forgot Username">				
+	
+	<link rel="apple-touch-icon" sizes="144x144" href="assets/apple-touch-icon.png" />
+	<link rel="shortcut icon" href="assets/favicon.ico" />
+	<meta name="theme-color" content="#3063A0" />
+	<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Fira+Sans:400,500,600" />
+	
+	<link rel="stylesheet" href="assets/vendor/fontawesome/css/all.css" />
+	
+	<link rel="stylesheet" href="assets/stylesheets/theme.min.css" data-skin="default" />
+	<link rel="stylesheet" href="assets/stylesheets/theme-dark.min.css" data-skin="dark" />
+	<link rel="stylesheet" href="assets/stylesheets/custom.css" />
+	<script>
+		var skin = localStorage.getItem('skin') || 'default';
+var isCompact = JSON.parse(localStorage.getItem('hasCompactMenu'));
+var disabledSkinStylesheet = document.querySelector('link[data-skin]:not([data-skin="' + skin + '"])');disabledSkinStylesheet.setAttribute('rel', '');
+disabledSkinStylesheet.setAttribute('disabled', true);if (isCompact == true) document.querySelector('html').classList.add('preparing-compact-menu');
+	</script>
+</head>
+<body>
+	<!--[if lt IE 10]>
+	<div class="page-message" role="alert">You are using an <strong>outdated</strong> browser. Please <a class="alert-link" href="http://browsehappy.com/">upgrade your browser</a> to improve your experience and security.</div>
+	<![endif]-->
+	
+	<main class="auth">
+		
+		<form class="auth-form auth-form-reflow">
+			<div class="text-center mb-4">
+				<div class="mb-4">
+					<img class="rounded" src="assets/apple-touch-icon.png" alt="" height="72">
+				</div>
+				<h1 class="h3"> Recover Your Username </h1>
+			</div>
+			<p class="mb-4"> Tempora iusto officia magnam fugiat sequi aliquam cum consectetur aperiam beatae, rerum obcaecati ea. </p>
+			<div id="recovery-mode" class="card-expansion">
+				
+				<div class="card card-reflow card-expansion-item expanded">
+					<div class="card-header px-0 border-0" id="recoverByEmail">
+						<button type="button" class="btn btn-reset" data-toggle="collapse" data-target="#byEmail" aria-expanded="true" aria-controls="byEmail"><span class="collapse-indicator mr-2"><i class="far fa-lg fa-circle"></i></span> <strong>Recover using your email address</strong></button>
+					</div>
+					<div id="byEmail" class="collapse show" aria-labelledby="recoverByEmail" data-parent="#recovery-mode">
+						<div class="card-body pt-0 pl-5">
+							<input type="email" name="recoverEmail" class="form-control form-control-lg" placeholder="Ex: john@uselooper.com">
+						</div>
+					</div>
+				</div>
+				
+				<div class="card card-reflow card-expansion-item">
+					<div class="card-header px-0 border-0" id="recoverByMobile">
+						<button type="button" class="btn btn-reset" data-toggle="collapse" data-target="#byMobile" aria-expanded="false" aria-controls="byMobile"><span class="collapse-indicator mr-2"><i class="far fa-lg fa-circle"></i></span> <strong>Recover using your mobile number</strong></button>
+					</div>
+					<div id="byMobile" class="collapse" aria-labelledby="recoverByMobile" data-parent="#recovery-mode">
+						<div class="card-body pt-0 pl-5">
+							
+							<div class="form-group mb-4">
+								<select name="inputCountry" class="custom-select custom-select-lg">
+									<option value=""> Select Country </option>
+								</select>
+							</div>
+							
+							<div class="form-group mb-4">
+								<label class="d-block text-left" for="inputMobile">Mobile Number</label> <input type="text" id="inputMobile" name="inputMobile" class="form-control form-control-lg">
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+			
+			<div class="d-block d-md-inline-block mb-2">
+				<button class="btn btn-lg btn-block btn-primary" type="submit">Recover Username</button>
+			</div>
+			<div class="d-block d-md-inline-block">
+				<a href="auth-signin-v1.html" class="btn btn-block btn-light">Return to signin</a>
+			</div>
+		</form>
+		<footer class="auth-footer mt-5">
+			© 2018 All Rights Reserved. Looper is Responsive Admin Theme build on top of latest Bootstrap 4. <a href="#">Privacy</a> and <a href="#">Terms</a>
+		</footer>
+	</main>
+	
+	<script src="assets/vendor/jquery/jquery.min.js"></script>
+	<script src="assets/vendor/bootstrap/js/popper.min.js"></script>
+	<script src="assets/vendor/bootstrap/js/bootstrap.min.js"></script>
+	
+	<script src="assets/javascript/theme.min.js"></script>
+</body>
+</html>

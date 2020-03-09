@@ -1,0 +1,70 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="utf-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+	
+	<title>Maintenance</title>
+	<meta property="og:title" content="Maintenance">
+	
+	<link rel="apple-touch-icon" sizes="144x144" href="assets/apple-touch-icon.png" />
+	<link rel="shortcut icon" href="assets/favicon.ico" />
+	<meta name="theme-color" content="#3063A0" />
+	<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Fira+Sans:400,500,600" />
+	
+	<link rel="stylesheet" href="assets/vendor/fontawesome/css/all.css" />
+	
+	<link rel="stylesheet" href="assets/stylesheets/theme.min.css" data-skin="default" />
+	<link rel="stylesheet" href="assets/stylesheets/theme-dark.min.css" data-skin="dark" />
+	<link rel="stylesheet" href="assets/stylesheets/custom.css" />
+	<script>
+		var skin = localStorage.getItem('skin') || 'default';
+var isCompact = JSON.parse(localStorage.getItem('hasCompactMenu'));
+var disabledSkinStylesheet = document.querySelector('link[data-skin]:not([data-skin="' + skin + '"])');disabledSkinStylesheet.setAttribute('rel', '');
+disabledSkinStylesheet.setAttribute('disabled', true);if (isCompact == true) document.querySelector('html').classList.add('preparing-compact-menu');
+	</script>
+</head>
+<body>
+	<!--[if lt IE 10]>
+	<div class="page-message" role="alert">You are using an <strong>outdated</strong> browser. Please <a class="alert-link" href="http://browsehappy.com/">upgrade your browser</a> to improve your experience and security.</div>
+	<![endif]-->
+	
+	<main class="auth">
+		
+		<div class="empty-state">
+			
+			<div class="empty-state-container">
+				
+				<div class="card border border-primary">
+					
+					<div class="card-body">
+						<div class="state-figure">
+							<img class="img-fluid w-75" src="assets/images/illustration/img-5.png" alt="">
+						</div>
+						<h3 class="state-header"> We're working on some updates </h3>
+						<p class="state-description"> We apologize for any inconvenience, but we'll be back up in no time. Check back soon! </p>
+						<form>
+							<div class="form-group w-75 mx-auto">
+								<label for="sitePassword">Enter site password</label>
+								<div class="input-group input-group-lg circle">
+									<input id="sitePassword" type="password" class="form-control">
+									<div class="input-group-append">
+										<button type="submit" class="btn btn-reset text-primary px-3"><i class="fa fa-arrow-circle-right text-primary"></i></button>
+									</div>
+								</div>
+							</div>
+						</form>
+					</div>
+				</div>
+				<p class="text-muted small"> Are you site owner? <a href="auth-signin-v1.html">Login here</a> or enter your password. </p>
+			</div>
+		</div>
+	</main>
+	
+	<script src="assets/vendor/jquery/jquery.min.js"></script>
+	<script src="assets/vendor/bootstrap/js/popper.min.js"></script>
+	<script src="assets/vendor/bootstrap/js/bootstrap.min.js"></script>
+	
+	<script src="assets/javascript/theme.min.js"></script>
+</body>
+</html>
