@@ -1,4 +1,4 @@
-@extends('farmer.layouts.master')
+@extends('admin.layouts.master')
 
 @section('content')
 
@@ -8,12 +8,13 @@
       <ol class="breadcrumb">
         <li class="breadcrumb-item active">
           <a href=" {{ route('farmer.dashboard') }} "><i class="breadcrumb-icon fa fa-angle-left mr-2"></i>Dashboard</a>
-          <a href=" {{ route('farmer.loaigiong.index') }} "><i class="breadcrumb-icon fa fa-angle-left mr-2"></i>Loại giống</a>
+          <a href=" {{ route('farmer.loaivattu.index') }} "><i class="breadcrumb-icon fa fa-angle-left mr-2"></i>Loại vật tư</a>
         </li>
       </ol>
     </nav>
+    
     <div class="d-md-flex align-items-md-start">
-      <h1 class="page-title mr-sm-auto"> Loại giống <small> Tạo mới </small> </h1>
+      <h1 class="page-title mr-sm-auto"> Loại vật tư <small> Tạo mới </small> </h1>
     </div>
   </header>
   <div class="page-section">
@@ -22,13 +23,13 @@
 
         @include('layouts.blocks.flash_message')
 
-        <form action=" {{ route('farmer.loaigiong.store') }} " method="post">
+        <form action=" {{ route('farmer.loaivattu.store') }} " method="post">
           @csrf()
           <fieldset>
             <div class="form-group">
-              <label for="tenloaigiong">Tên loại giống <abbr title="Required">*</abbr></label>
-              <input type="text" class="form-control @error('tenloaigiong') is-invalid @enderror" id="tenloaigiong" name="tenloaigiong" value="{{old('tenloaigiong')}}" placeholder="Tên loại giống" autofocus>
-              @error('tenloaigiong')  <div class="invalid-feedback"> <i class="fa fa-exclamation-circle fa-fw"></i> {{ $message }} </div>  @enderror
+              <label for="tenloaivattu">Tên loại vật tư <abbr title="Required">*</abbr></label>
+              <input type="text" class="form-control @error('tenloaivattu') is-invalid @enderror" id="tenloaivattu" name="tenloaivattu" value="{{old('tenloaivattu')}}" placeholder="Tên loại vật tư" autofocus>
+              @error('tenloaivattu')  <div class="invalid-feedback"> <i class="fa fa-exclamation-circle fa-fw"></i> {{ $message }} </div>  @enderror
             </div>
             
             <div class="form-group">

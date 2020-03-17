@@ -2,54 +2,10 @@
 
 @section('content')
 <div class="page-inner">  
-						
-  <header class="page-title-bar">
-    <div class="d-flex flex-column flex-md-row">
-      <p class="lead">
-        <span class="font-weight-bold">Hi, Beni.</span> <span class="d-block text-muted">Here’s what’s happening with your business today.</span>
-      </p>
-      <div class="ml-auto">
-        
-        <div class="dropdown">
-          <button class="btn btn-secondary" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><span>This Week</span> <i class="fa fa-fw fa-caret-down"></i></button> 
-          <div class="dropdown-menu dropdown-menu-right dropdown-menu-md stop-propagation">
-            <div class="dropdown-arrow"></div>
-            <div class="custom-control custom-radio">
-              <input type="radio" class="custom-control-input" id="dpToday" name="dpFilter" data-start="2019/03/27" data-end="2019/03/27"> <label class="custom-control-label d-flex justify-content-between" for="dpToday"><span>Today</span> <span class="text-muted">Mar 27</span></label>
-            </div>
-          
-            <div class="custom-control custom-radio">
-              <input type="radio" class="custom-control-input" id="dpYesterday" name="dpFilter" data-start="2019/03/26" data-end="2019/03/26"> <label class="custom-control-label d-flex justify-content-between" for="dpYesterday"><span>Yesterday</span> <span class="text-muted">Mar 26</span></label>
-            </div>
-          
-            <div class="custom-control custom-radio">
-              <input type="radio" class="custom-control-input" id="dpWeek" name="dpFilter" data-start="2019/03/21" data-end="2019/03/27" checked> <label class="custom-control-label d-flex justify-content-between" for="dpWeek"><span>This Week</span> <span class="text-muted">Mar 21-27</span></label>
-            </div>
-          
-            <div class="custom-control custom-radio">
-              <input type="radio" class="custom-control-input" id="dpMonth" name="dpFilter" data-start="2019/03/01" data-end="2019/03/27"> <label class="custom-control-label d-flex justify-content-between" for="dpMonth"><span>This Month</span> <span class="text-muted">Mar 1-31</span></label>
-            </div>
-          
-            <div class="custom-control custom-radio">
-              <input type="radio" class="custom-control-input" id="dpYear" name="dpFilter" data-start="2019/01/01" data-end="2019/12/31"> <label class="custom-control-label d-flex justify-content-between" for="dpYear"><span>This Year</span> <span class="text-muted">2019</span></label>
-            </div>
-          
-            <div class="custom-control custom-radio">
-              <input type="radio" class="custom-control-input" id="dpCustom" name="dpFilter" data-start="2019/03/27" data-end="2019/03/27"> <label class="custom-control-label" for="dpCustom">Custom</label>
-              <div class="custom-control-hint my-1">
-                
-                <input type="text" class="form-control" id="dpCustomInput" data-toggle="flatpickr" data-mode="range" data-disable-mobile="true" data-date-format="Y-m-d"> 
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </header>
   
   <div class="page-section">
     
-    <div class="section-block">
+    <!-- <div class="section-block">
       
       <div class="metric-row">
         <div class="col-lg-9">
@@ -58,22 +14,14 @@
             <div class="col">
               
               <a href="user-teams.html" class="metric metric-bordered align-items-center">
-                <h2 class="metric-label"> Teams </h2>
+                <h2 class="metric-label"> Tổng diện tích </h2>
                 <p class="metric-value h3">
-                  <sub><i class="oi oi-people"></i></sub> <span class="value">8</span>
+                  <sub><i class="oi oi-people"></i></sub> <span class="value">50.000 m <sup>2</sup></span>
                 </p>
               </a> 
             </div>
             
-            <div class="col">
-              
-              <a href="user-projects.html" class="metric metric-bordered align-items-center">
-                <h2 class="metric-label"> Projects </h2>
-                <p class="metric-value h3">
-                  <sub><i class="oi oi-fork"></i></sub> <span class="value">12</span>
-                </p>
-              </a> 
-            </div>
+           
             
             <div class="col">
               
@@ -90,37 +38,42 @@
           
           <a href="user-tasks.html" class="metric metric-bordered">
             <div class="metric-badge">
-              <span class="badge badge-lg badge-success"><span class="oi oi-media-record pulse mr-1"></span> ONGOING TASKS</span>
+              <span class="badge badge-lg badge-success"><span class="oi oi-media-record pulse mr-1"></span> Thông báo</span>
             </div>
             <p class="metric-value h3">
-              <sub><i class="oi oi-timer"></i></sub> <span class="value">8</span>
+              <sub><i class="oi oi-timer"></i></sub> <span class="value">5</span>
             </p>
           </a> 
         </div>
       </div>
-    </div>
+    </div> -->
     
     <div class="row">
       
-      <div class="col-12 col-lg-12 col-xl-4">
+      <div class="col-12 col-lg-6 col-xl-4">
         
         <div class="card card-fluid">
-          
+          <div class="card-header"> <i class="fa fa-sun"></i> Thời tiết nông vụ </div>
           <div class="card-body">
-            <h3 class="card-title mb-4"> Completion Tasks </h3>
-            <div class="chartjs" style="height: 292px">
-              <canvas id="completion-tasks"></canvas>
+            <!-- <h3 class="card-title mb-4"> Thời tiết nông vụ </h3> -->
+            <div class="chartjs mb-2" style="height: 292px">
+            
+              <a class="weatherwidget-io" href="https://forecast7.com/en/9d81106d30/tra-vinh/" data-label_1="Trà Vinh" data-theme="original" >Trà Vinh</a>
+              <script>
+              !function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src='https://weatherwidget.io/js/widget.min.js';fjs.parentNode.insertBefore(js,fjs);}}(document,'script','weatherwidget-io-js');
+              </script>
+
             </div>
           </div>
         </div>
       </div>
       
-      <div class="col-12 col-lg-6 col-xl-4">
+      <div class="col-12 col-lg-6 col-xl-8">
         
         <div class="card card-fluid">
-          
+          <div class="card-header"> <i class="fa fa-balance-scale"></i> Giá cả thị trường </div>
           <div class="card-body">
-            <h3 class="card-title"> Tasks Performance </h3>
+            <!-- <h3 class="card-title"> Giá cả thị trường </h3> -->
             <div class="text-center pt-3">
               <div class="chart-inline-group" style="height:214px">
                 <div class="easypiechart" data-toggle="easypiechart" data-percent="60" data-size="214" data-bar-color="#346CB0" data-track-color="false" data-scale-color="false" data-rotate="225"></div>
@@ -144,7 +97,7 @@
         </div>
       </div>
       
-      <div class="col-12 col-lg-6 col-xl-4">
+      <!-- <div class="col-12 col-lg-6 col-xl-4">
         
         <div class="card card-fluid">
           
@@ -279,10 +232,73 @@
             </div>
           </div>
         </div>
+      </div> -->
+    </div>
+    
+    <!-- Links function -->
+    <div class="card card-fluid">
+      <div class="card-header">
+        <i class="fa fa-universal-access"></i> Chức năng
+      </div>
+      <div class="card-body">
+      
+        <div class="section-block text-center text-xl-center">
+          <a href="#" class="visual-picker visual-picker-md has-peek px-3">
+          
+            <div class="visual-picker-figure">
+              
+              <span class="visual-picker-content"><span class="tile tile-xl bg-info"><i class="oi oi-book oi-3x"></i></span></span> 
+            </div>
+            
+            <span class="visual-picker-peek">Ghi nhật ký</span>
+          </a> 
+          
+          <a href="#" class="visual-picker visual-picker-md has-peek px-3">
+          
+            <div class="visual-picker-figure">
+              
+              <span class="visual-picker-content"><span class="tile tile-xl bg-danger"><i class="fa fa-shopping-cart"></i></span></span> 
+            </div>
+            
+            <span class="visual-picker-peek">Hàng hóa - dịch vụ</span>
+          </a> 
+          
+          <a href="#" class="visual-picker visual-picker-md has-peek px-3">
+          
+            <div class="visual-picker-figure">
+              
+              <span class="visual-picker-content"><span class="tile tile-xl bg-success"><i class="oi oi-calendar"></i></span></span> 
+            </div>
+            
+            <span class="visual-picker-peek">Kế hoạch sản xuất</span>
+          </a> 
+          
+          <a href="#" class="visual-picker visual-picker-md has-peek px-3">
+          
+            <div class="visual-picker-figure">
+              
+              <span class="visual-picker-content"><span class="tile tile-xl bg-warning"><i class="oi oi-puzzle-piece"></i></span></span> 
+            </div>
+            
+            <span class="visual-picker-peek">Đất canh tác</span>
+          </a> 
+        
+          <a href="#" class="visual-picker visual-picker-md has-peek px-3">
+            
+            <div class="visual-picker-figure">
+              
+              <span class="visual-picker-content"><span class="tile tile-xl bg-warning"><i class="fa fa-info-circle"></i></span></span> 
+            </div>
+            
+            <span class="visual-picker-peek">Tham khảo canh tác</span>
+          </a>
+
+        </div>
+							
       </div>
     </div>
     
-    <div class="card-deck-xl">
+    <!-- <div class="card-deck-xl">
       
       <div class="card card-fluid pb-3">
         <div class="card-header"> Active Projects </div>
@@ -488,7 +504,7 @@
           <a href="#" class="card-footer-item">View all <i class="fa fa-fw fa-angle-right"></i></a>
         </div>
       </div>
-    </div>
+    </div> -->
   </div>
 </div>
 @endsection

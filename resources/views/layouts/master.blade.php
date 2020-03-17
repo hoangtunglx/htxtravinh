@@ -418,6 +418,7 @@
 			{
 				$('.menu li').removeClass('has-active');
 				$(this).closest('li').addClass('has-active');
+				$(this).closest('ul').closest('li').addClass('has-open');
 				return false;
 			}
 		});
