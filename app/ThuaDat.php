@@ -11,5 +11,5 @@ use Illuminate\Database\Eloquent\Model;
 
 class ThuaDat extends Model
 {
-	//
+	protected $table = 'thuadat';
 }
