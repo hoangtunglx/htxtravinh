@@ -31,7 +31,14 @@ Route::prefix('farmer')->name('farmer.')->group(function () {
 		Route::get('mua-vu/{id}', 'ServiceNhatKyCanhTacController@getThuaDat')->name('muavu.thuadat');
 		Route::get('mua-vu/ghi/{muavuid}/{thuadatid}', 'ServiceNhatKyCanhTacController@getQuyTrinh')->name('muavu.thuadat.quytrinh');
 	});
-	
+	/* Loại nông sản */
+	Route::prefix('loai-nong-san')->name('loainongsan.')->group(function () {
+		Route::get('', 'LoaiNongSanController@getIndexFarmer')->name('index');
+	});
+	/* Nông sản */
+	Route::prefix('nong-san')->name('nongsan.')->group(function () {
+		Route::get('', 'NongSanController@getIndexFarmer')->name('index');
+	});
 });
 
 // Officer - Cán bộ hợp tác xã
@@ -48,7 +55,24 @@ Route::prefix('officer')->name('officer.')->group(function () {
 		Route::put('update', 'LoaiGiongController@postEditOfficer')->name('update');
 		Route::delete('delete/{id}', 'LoaiGiongController@postDeleteOfficer')->name('delete');
 	});
-
+	// Loại nông sản
+	Route::prefix('loai-nong-san')->name('loainongsan.')->group(function () {
+		Route::get('', 'LoaiNongSanController@getIndexOfficer')->name('index');
+		Route::get('create', 'LoaiNongSanController@getCreateOfficer')->name('create');
+		Route::post('store', 'LoaiNongSanController@postCreateOfficer')->name('store');
+		Route::get('edit/{id}', 'LoaiNongSanController@getEditOfficer')->name('edit');
+		Route::put('update', 'LoaiNongSanController@postEditOfficer')->name('update');
+		Route::delete('delete/{id}', 'LoaiNongSanController@postDeleteOfficer')->name('delete');
+	});
+	// Nông sản
+	Route::prefix('nong-san')->name('nongsan.')->group(function () {
+		Route::get('', 'NongSanController@getIndexOfficer')->name('index');
+		Route::get('create', 'NongSanController@getCreateOfficer')->name('create');
+		Route::post('store', 'NongSanController@postCreateOfficer')->name('store');
+		Route::get('edit/{id}', 'NongSanController@getEditOfficer')->name('edit');
+		Route::put('update', 'NongSanController@postEditOfficer')->name('update');
+		Route::delete('delete/{id}', 'NongSanController@postDeleteOfficer')->name('delete');
+	});
 });
 
 // Manager - Cán bộ quản lý hợp tác xã
@@ -60,7 +84,14 @@ Route::prefix('manager')->name('manager.')->group(function () {
 	Route::prefix('loai-giong')->name('loaigiong.')->group(function () {
 		Route::get('', 'LoaiGiongController@getIndexManager')->name('index');
 	});
-
+	// Loại nông sản
+	Route::prefix('loai-nong-san')->name('loainongsan.')->group(function () {
+		Route::get('', 'LoaiNongSanController@getIndexManager')->name('index');
+	});
+	// Nông sản
+	Route::prefix('nong-san')->name('nongsan.')->group(function () {
+		Route::get('', 'NongSanController@getIndexManager')->name('index');
+	});
 });
 
 // Admin - Quản trị viên
@@ -70,7 +101,7 @@ Route::prefix('admin')->name('admin.')->group(function () {
 	})->name('dashboard');
 
 
-	/*Loai Giong*/ 
+	/*Loai Giong*/
 	Route::prefix('loai-giong')->name('loaigiong.')->group(function () {
 		Route::get('', 'LoaiGiongController@getIndexAdmin')->name('index');
 		Route::get('create', 'LoaiGiongController@getCreateAdmin')->name('create');
@@ -80,7 +111,7 @@ Route::prefix('admin')->name('admin.')->group(function () {
 		Route::delete('delete/{id}', 'LoaiGiongController@postDeleteAdmin')->name('delete');
 	});
 
-	/*Giong*/ 
+	/*Giong*/
 	Route::prefix('giong')->name('giong.')->group(function () {
 		Route::get('', 'GiongController@getIndex')->name('index');
 		Route::get('create', 'GiongController@getCreate')->name('create');
@@ -90,7 +121,7 @@ Route::prefix('admin')->name('admin.')->group(function () {
 		Route::delete('delete/{id}', 'GiongController@postDelete')->name('delete');
 	});
 
-	/*Loai Thuoc  Bvtv*/ 
+	/*Loai Thuoc  Bvtv*/
 	Route::prefix('loai-thuoc-bvtv')->name('loaithuocbvtv.')->group(function () {
 		Route::get('', 'LoaiThuocBVTVController@getIndex')->name('index');
 		Route::get('create', 'LoaiThuocBVTVController@getCreate')->name('create');
@@ -100,7 +131,7 @@ Route::prefix('admin')->name('admin.')->group(function () {
 		Route::delete('delete/{id}', 'LoaiThuocBVTVController@postDelete')->name('delete');
 	});
 
-	/*Thuoc  Bvtv*/ 
+	/*Thuoc  Bvtv*/
 	Route::prefix('thuoc-bvtv')->name('thuocbvtv.')->group(function () {
 		Route::get('', 'ThuocBVTVController@getIndex')->name('index');
 		Route::get('create', 'ThuocBVTVController@getCreate')->name('create');
@@ -109,7 +140,7 @@ Route::prefix('admin')->name('admin.')->group(function () {
 		Route::put('update', 'ThuocBVTVController@postEdit')->name('update');
 		Route::delete('delete/{id}', 'ThuocBVTVController@postDelete')->name('delete');
 	});
-  
+
   /* Loai Phan bon */
 	Route::prefix('loai-phan-bon')->name('loaiphanbon.')->group(function () {
 		Route::get('', 'LoaiPhanBonController@getIndex')->name('index');
@@ -119,7 +150,7 @@ Route::prefix('admin')->name('admin.')->group(function () {
 		Route::put('update', 'LoaiPhanBonController@postEdit')->name('update');
 		Route::delete('delete/{id}', 'LoaiPhanBonController@postDelete')->name('delete');
 	});
-  
+
 	/* Phan Bon */
 	Route::prefix('phan-bon')->name('phanbon.')->group(function () {
 		Route::get('', 'PhanBonController@getIndex')->name('index');
@@ -139,7 +170,7 @@ Route::prefix('admin')->name('admin.')->group(function () {
 		Route::put('update', 'LoaiVatTuController@postEdit')->name('update');
 		Route::delete('delete/{id}', 'LoaiVatTuController@postDelete')->name('delete');
 	});
-  
+
   /* Loai Tieu Chuan SX */
 	Route::prefix('loai-tieu-chuan-san-xuat')->name('loaitieuchuansx.')->group(function () {
 		Route::get('', 'LoaiTieuChuanSXController@getIndex')->name('index');
@@ -149,7 +180,7 @@ Route::prefix('admin')->name('admin.')->group(function () {
 		Route::put('update', 'LoaiTieuChuanSXController@postEdit')->name('update');
 		Route::delete('delete/{id}', 'LoaiTieuChuanSXController@postDelete')->name('delete');
 	});
-  
+
 	/* Tieu Chuan SX */
 	Route::prefix('tieu-chuan-san-xuat')->name('tieuchuansx.')->group(function () {
 		Route::get('', 'TieuChuanSXController@getIndex')->name('index');
@@ -159,7 +190,24 @@ Route::prefix('admin')->name('admin.')->group(function () {
 		Route::put('update', 'TieuChuanSXController@postEdit')->name('update');
 		Route::delete('delete/{id}', 'TieuChuanSXController@postDelete')->name('delete');
 	});
-
+	/* Loại Nông Sản */
+	Route::prefix('loai-nong-san')->name('loainongsan.')->group(function () {
+		Route::get('', 'LoaiNongSanController@getIndexAdmin')->name('index');
+		Route::get('create', 'LoaiNongSanController@getCreateAdmin')->name('create');
+		Route::post('store', 'LoaiNongSanController@postCreateAdmin')->name('store');
+		Route::get('edit/{id}', 'LoaiNongSanController@getEditAdmin')->name('edit');
+		Route::put('update', 'LoaiNongSanController@postEditAdmin')->name('update');
+		Route::delete('delete/{id}', 'LoaiNongSanController@postDeleteAdmin')->name('delete');
+	});
+	/* Nông Sản */
+	Route::prefix('nong-san')->name('nongsan.')->group(function () {
+		Route::get('', 'NongSanController@getIndexAdmin')->name('index');
+		Route::get('create', 'NongSanController@getCreateAdmin')->name('create');
+		Route::post('store', 'NongSanController@postCreateAdmin')->name('store');
+		Route::get('edit/{id}', 'NongSanController@getEditAdmin')->name('edit');
+		Route::put('update', 'NongSanController@postEditAdmin')->name('update');
+		Route::delete('delete/{id}', 'NongSanController@postDeleteAdmin')->name('delete');
+	});
 });
 
 

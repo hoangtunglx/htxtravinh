@@ -8,14 +8,14 @@
 			<li class="menu-item has-child">
 				<a href="#" class="menu-link"><span class="menu-icon fa fa-university"></span> <span class="menu-text">Dịch vụ</span> </a>
 				<ul class="menu">
-				
+
 					<li class="menu-item">
 						<a href="{{ route('admin.giong.index') }}" class="menu-link"><span class="menu-icon fa fa-leaf"></span> <span class="menu-text">Thuê dịch vụ</span> </a>
 					</li>
 					<li class="menu-item">
 						<a href="{{ route('admin.loaigiong.index') }}" class="menu-link"><span class="menu-icon far fa-leaf"></span> <span class="menu-text">Đơn hàng</span> </a>
 					</li>
-					
+
 					<li class="menu-item">
 						<a href="{{ route('admin.giong.index') }}" class="menu-link"><span class="menu-icon fa fa-leaf"></span> <span class="menu-text">Công nợ</span> </a>
 					</li>
@@ -29,14 +29,14 @@
 			<li class="menu-item has-child">
 				<a href="#" class="menu-link"><span class="menu-icon fa fa-sun"></span> <span class="menu-text">Thời tiết - Giá</span> </a>
 				<ul class="menu">
-				
+
 					<li class="menu-item">
 						<a href="{{ route('admin.giong.index') }}" class="menu-link"><span class="menu-icon fa fa-leaf"></span> <span class="menu-text">TT thị trường</span> </a>
 					</li>
 					<li class="menu-item">
 						<a href="{{ route('admin.loaigiong.index') }}" class="menu-link"><span class="menu-icon far fa-leaf"></span> <span class="menu-text">TT môi trường</span> </a>
 					</li>
-					
+
 					<li class="menu-item">
 						<a href="{{ route('admin.giong.index') }}" class="menu-link"><span class="menu-icon fa fa-leaf"></span> <span class="menu-text">Dự báo sâu bệnh</span> </a>
 					</li>
@@ -50,14 +50,14 @@
 			<li class="menu-item has-child">
 				<a href="#" class="menu-link"><span class="menu-icon far fa-list-alt"></span> <span class="menu-text">Danh mục</span> </a>
 				<ul class="menu">
-				
+
 					<li class="menu-item">
 						<a href="{{ route('admin.giong.index') }}" class="menu-link"><span class="menu-icon fa fa-leaf"></span> <span class="menu-text">Hợp tác xã</span> </a>
 					</li>
 					<li class="menu-item">
 						<a href="{{ route('admin.loaigiong.index') }}" class="menu-link"><span class="menu-icon far fa-leaf"></span> <span class="menu-text">Doanh nghiệp</span> </a>
 					</li>
-					
+
 					<li class="menu-item">
 						<a href="{{ route('admin.giong.index') }}" class="menu-link"><span class="menu-icon fa fa-leaf"></span> <span class="menu-text">Vùng nguyên liệu</span> </a>
 					</li>
@@ -76,7 +76,7 @@
 						<a href="{{ route('admin.giong.index') }}" class="menu-link"><span class="menu-icon fa fa-leaf"></span> <span class="menu-text">Nông sản</span> </a>
 					</li>
 					<li class="menu-item">
-						<a href="{{ route('admin.loaigiong.index') }}" class="menu-link"><span class="menu-icon far fa-leaf"></span> <span class="menu-text">Loại nông sản</span> </a>
+						<a href="{{ route('admin.loainongsan.index') }}" class="menu-link"><span class="menu-icon far fa-leaf"></span> <span class="menu-text">Loại nông sản</span> </a>
 					</li>
 
 					<li class="menu-item">
@@ -85,7 +85,7 @@
 					<li class="menu-item">
 						<a href="{{ route('admin.loaigiong.index') }}" class="menu-link"><span class="menu-icon far fa-leaf"></span> <span class="menu-text">Loại vật tư</span> </a>
 					</li>
-					
+
 					<li class="menu-item">
 						<a href="{{ route('admin.giong.index') }}" class="menu-link"><span class="menu-icon fa fa-leaf"></span> <span class="menu-text">Giống</span> </a>
 					</li>
