@@ -33,7 +33,6 @@
               <input type="text" class="form-control @error('tenloainongsan') is-invalid @enderror" id="tenloainongsan" name="tenloainongsan" value="{{old('tenloainongsan',  $loaiNongSan->tenloainongsan)}}" placeholder="Tên loại nông sản" autofocus>
               @error('tenloainongsan')  <div class="invalid-feedback"> <i class="fa fa-exclamation-circle fa-fw"></i> {{ $message }} </div>  @enderror
             </div>
-            
             <div class="form-group">
               <label for="mota">Mô tả </label>
               <textarea class="form-control @error('mota') is-invalid @enderror" id="mota" name="mota" rows="3" placeholder="Mô tả" autofocus>{{old('mota', $loaiNongSan->mota)}}</textarea>

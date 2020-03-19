@@ -55,7 +55,6 @@
 
         </table>
       </div>
-
       <div class="card-footer">
           <a href="{{ route('officer.loainongsan.create') }}" class="card-footer-item btn-outline-success" title="Thêm mới"> <i class="fa fa-plus-circle"></i> Thêm mới </a>
       </div>

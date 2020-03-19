@@ -23,7 +23,6 @@
       <div class="card-body">
 
         @include('layouts.blocks.flash_message')
-
         <table id="table-datatable-default" class="table">
           <thead>
             <tr>

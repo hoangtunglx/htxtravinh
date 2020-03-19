@@ -47,7 +47,7 @@
                 <form action="{{route('officer.nongsan.delete', ['id'=>$nongSan->id])}}" method="post">
                   @csrf()
                   @method('DELETE')
-                  <a href="{{ route('officer.nongsan.edit', ['id' => $nongSan->id]) }}" class="btn btn-warning btn-sm btn-icon " title="Chỉnh sửa"><i class="fa fa-pencil-alt"></i></a>
+                  <a href="{{ route('officer.nongsan.edit', ['id' => $nongSan->id]) }}" class="btn btn-warning btn-sm btn-icon" title="Chỉnh sửa"><i class="fa fa-pencil-alt"></i></a>
                   <button type="submit" class="btn btn-danger btn-delete btn-sm btn-icon" title="Xóa"> <i class="fa fa-trash"></i></button>
                 </form>
               </td>

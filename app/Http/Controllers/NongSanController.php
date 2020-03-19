@@ -1,7 +1,7 @@
 <?php
 
 /**
- * Người thực hiện	: Họ Và Tên
+ * Người thực hiện	: Nguyên
  * Ngày cập nhật	: dd/mm/yyyy
  */
 

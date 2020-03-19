@@ -11,6 +11,7 @@ use Illuminate\Database\Eloquent\Model;
 
 class LoaiNongSan extends Model
 {
+	
 	protected $table = 'loainongsan';
 
 	public function NongSan()

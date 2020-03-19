@@ -35,7 +35,7 @@
               <select id="loainongsan_id" class="form-control custom-select @error('loainongsan_id') is-invalid @enderror" name="loainongsan_id"  placeholder="Loại nông sản" >
                   <option value="">-- Choose --</option>
                       @foreach($dsLoaiNongSan as $value)
-                        <option value="{{ $value->id }}">{{ $value->tenloainongsan }}</option>
+                          <option value="{{ $value->id }}">{{ $value->tenloainongsan }}</option>
                       @endforeach
               </select>
               @error('loainongsan_id')  <div class="invalid-feedback"> <i class="fa fa-exclamation-circle fa-fw"></i> {{ $message }} </div>  @enderror

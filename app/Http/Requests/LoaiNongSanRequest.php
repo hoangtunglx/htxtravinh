@@ -32,6 +32,7 @@ class LoaiNongSanRequest extends FormRequest
     {
         return [
             'tenloainongsan.required' => 'Vui lòng nhập tên loại nông sản'
+            
         ];
     }
 }

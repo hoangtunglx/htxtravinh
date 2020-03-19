@@ -11,6 +11,7 @@ use App\LoaiNongSan;
 use Illuminate\Http\Request;
 use App\Http\Requests\LoaiNongSanRequest;
 
+
 class LoaiNongSanController extends Controller
 {
 	public function getIndex()

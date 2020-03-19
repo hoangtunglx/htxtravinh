@@ -34,6 +34,7 @@ class NongSanRequest extends FormRequest
         return [
             'tennongsan.required' => 'Vui lòng nhập tên nông sản',
             'loainongsan_id.required' => 'Vui lòng chọn loại nông sản'
+            
         ];
     }
 }

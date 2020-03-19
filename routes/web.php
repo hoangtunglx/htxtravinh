@@ -39,6 +39,10 @@ Route::prefix('farmer')->name('farmer.')->group(function () {
 	Route::prefix('nong-san')->name('nongsan.')->group(function () {
 		Route::get('', 'NongSanController@getIndexFarmer')->name('index');
 	});
+	/* Phương tiện SX */
+	Route::prefix('phuong-tien-sx')->name('phuongtiensx.')->group(function () {
+		Route::get('', 'PhuongTienSXController@getIndexFarmer')->name('index');
+	});
 });
 
 // Officer - Cán bộ hợp tác xã
