@@ -11,5 +11,14 @@ use Illuminate\Database\Eloquent\Model;
 
 class PhuongTienSX extends Model
 {
-	//
+	protected $table = 'phuongtiensx';
+	
+	public function LoaiPhuongTien()
+   {
+      return $this->belongsTo(LoaiPhuongTien::class,'loaiphuongtien_id','id');
+   }
+  public function HopTacXa()
+  {
+      return $this->belongsTo(HopTacXa::class,'hoptacxa_id','id');
+    }
 }

@@ -31,11 +31,11 @@
               @error('tennongsan')  <div class="invalid-feedback"> <i class="fa fa-exclamation-circle fa-fw"></i> {{ $message }} </div>  @enderror
             </div>
             <div class="form-group">
-              <label for="loainongsan_id">Loại nông sản <span class="text-danger font-weight-bold">*</span></label>
-              <select id="loainongsan_id" class="form-control custom-select @error('loainongsan_id') is-invalid @enderror" name="loainongsan_id"  placeholder="Loại nông sản" >
+              <label for="loainongsan_id">Chọn loại nông sản <span class="text-danger font-weight-bold">*</span></label>
+              <select id="loainongsan_id" class="form-control custom-select @error('loainongsan_id') is-invalid @enderror" name="loainongsan_id"  placeholder="Chọn loại nông sản" >
                   <option value="">-- Choose --</option>
                       @foreach($dsLoaiNongSan as $value)
-                          <option value="{{ $value->id }}">{{ $value->tenloainongsan }}</option>
+                          <option value="{{ $value->id == old('loainongsan_id') ? 'selected' : '' }}">{{ $value->tenloainongsan }}</option>
                       @endforeach
               </select>
               @error('loainongsan_id')  <div class="invalid-feedback"> <i class="fa fa-exclamation-circle fa-fw"></i> {{ $message }} </div>  @enderror
