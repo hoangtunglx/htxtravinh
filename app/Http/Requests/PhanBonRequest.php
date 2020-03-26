@@ -24,7 +24,7 @@ class PhanBonRequest extends FormRequest
     public function rules()
     {	
         return [
-            'tenphanbon' => 'required',
+            'tenphanbon' => 'required|unique:phanbon,tenphanbon,'.$this->phanbonid,
 			'loaiphanbon_id'=> 'required'
         ];
     }

@@ -1,12 +1,12 @@
-@extends('admin.layouts.master')
+@extends('officer.layouts.master')
 @section('content')
 <div class="page-inner">
   <header class="page-title-bar">
     <nav aria-label="breadcrumb">
       <ol class="breadcrumb">
         <li class="breadcrumb-item active">
-          <a href=" {{ route('admin.dashboard') }} "><i class="breadcrumb-icon fa fa-angle-left mr-2"></i>Dashboard</a>
-          <a href=" {{ route('admin.phanbon.index') }} "><i class="breadcrumb-icon fa fa-angle-left mr-2"></i>Phân bón</a>
+          <a href=" {{ route('officer.dashboard') }} "><i class="breadcrumb-icon fa fa-angle-left mr-2"></i>Dashboard</a>
+          <a href=" {{ route('officer.phanbon.index') }} "><i class="breadcrumb-icon fa fa-angle-left mr-2"></i>Phân bón</a>
         </li>
       </ol>
     </nav>
@@ -18,7 +18,7 @@
     <div class="card card-fluid">
       <div class="card-body">
         @include('layouts.blocks.flash_message')
-        <form action=" {{ route('admin.phanbon.update') }} " method="post" >
+        <form action=" {{ route('officer.phanbon.update') }} " method="post" >
           @csrf()
           @method('PUT')
           <input type="hidden" name="phanbonid" value=" {{ $phanBon->id }} ">

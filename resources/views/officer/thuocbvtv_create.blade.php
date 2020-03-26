@@ -1,4 +1,4 @@
-@extends('admin.layouts.master')
+@extends('officer.layouts.master')
 
 @section('content')
 
@@ -7,8 +7,8 @@
     <nav aria-label="breadcrumb">
       <ol class="breadcrumb">
         <li class="breadcrumb-item active">
-          <a href=" {{ route('admin.dashboard') }} "><i class="breadcrumb-icon fa fa-angle-left mr-2"></i>Dashboard</a>
-          <a href=" {{ route('admin.thuocbvtv.index') }} "><i class="breadcrumb-icon fa fa-angle-left mr-2"></i>Thuốc Bvtv</a>
+          <a href=" {{ route('officer.dashboard') }} "><i class="breadcrumb-icon fa fa-angle-left mr-2"></i>Dashboard</a>
+          <a href=" {{ route('officer.thuocbvtv.index') }} "><i class="breadcrumb-icon fa fa-angle-left mr-2"></i>Thuốc Bvtv</a>
         </li>
       </ol>
     </nav>
@@ -23,7 +23,7 @@
 
         @include('layouts.blocks.flash_message')
 
-        <form action=" {{ route('admin.thuocbvtv.store') }} " method="post">
+        <form action=" {{ route('officer.thuocbvtv.store') }} " method="post">
           @csrf()
           <fieldset>
             <div class="form-group">

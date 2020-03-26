@@ -17,23 +17,37 @@
 					
       <div class="page-inner">
         <div class="page-section">
-          
-         csd
+          <div class="card card-fluid">
+            <div class="card-header"> <h2 class="card-title">  Chọn giai đoạn <i class="fa fa-question-circle"></i> </h2> </div>
+            <div class="card-body">
+              @include('layouts.blocks.flash_message')
+              <div class="section-block text-center text-xl-left">
+                @foreach($dsGiaiDoanQuyTrinh?? [] as $giaiDoanQuyTrinh)
+                <a href="" class="visual-picker visual-picker-md has-peek px-6" title="{{ $giaiDoanQuyTrinh->tengiaidoan }}">
+                  <div class="visual-picker-figure">
+                    <span class="visual-picker-content"><span class="tile tile-xl bg-info"><i class="oi oi-check oi-3x"></i></span></span> 
+                  </div>
+                  <span class="visual-picker-peek">{{ $giaiDoanQuyTrinh->tengiaidoan }}</span>
+                </a> 
+                @endforeach
+              </div>
+            </div>
+          </div>
         </div>
       </div>
       
       <div class="page-sidebar">
         
         <div class="card card-reflow">
-          <!-- <div class="card-body">
-            <h4 class="card-title"> Nhật ký </h4>
-            <div class="progress progress-sm rounded-0 mb-1">
-              <div class="progress-bar bg-success w-75" role="progressbar" aria-valuenow="75" aria-valuemin="0" aria-valuemax="100"></div>
-            </div>
-            <p class="text-muted text-weight-bolder small"> $2,322 of $3,076 </p>
-          </div> -->
-          <div class="card-body border-top">
+          <div class="card-body">
             <h4 class="card-title"> Nhật ký đã ghi </h4>
+            <!-- <div class="progress progress-sm rounded-0 mb-1">
+              <div class="progress-bar bg-success w-75" role="progressbar" aria-valuenow="75" aria-valuemin="0" aria-valuemax="100"></div>
+            </div> -->
+            <p class="text-muted text-weight-bolder small"> {{$thuaDat->tenthuadat . " - " . $keHoachSanXuat->tenkehoachsanxuatmuavu . " (" . $muaVu->tenmuavu . ")"}} </p>
+          </div>
+          <div class="card-body border-top">
+            <!-- <h4 class="card-title"> Nhật ký đã ghi </h4> -->
             <ul class="timeline timeline-dashed-line">
               
               <li class="timeline-item">

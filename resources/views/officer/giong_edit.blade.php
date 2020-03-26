@@ -1,4 +1,4 @@
-@extends('admin.layouts.master')
+@extends('officer.layouts.master')
 
 @section('content')
 
@@ -7,8 +7,8 @@
     <nav aria-label="breadcrumb">
       <ol class="breadcrumb">
         <li class="breadcrumb-item active">
-          <a href=" {{ route('admin.dashboard') }} "><i class="breadcrumb-icon fa fa-angle-left mr-2"></i>Dashboard</a>
-          <a href=" {{ route('admin.giong.index') }} "><i class="breadcrumb-icon fa fa-angle-left mr-2"></i>Giống</a>
+          <a href=" {{ route('officer.dashboard') }} "><i class="breadcrumb-icon fa fa-angle-left mr-2"></i>Dashboard</a>
+          <a href=" {{ route('officer.giong.index') }} "><i class="breadcrumb-icon fa fa-angle-left mr-2"></i>Giống</a>
         </li>
       </ol>
     </nav>
@@ -22,7 +22,7 @@
 
         @include('layouts.blocks.flash_message')
 
-        <form action=" {{ route('admin.giong.update') }} " method="post">
+        <form action=" {{ route('officer.giong.update') }} " method="post">
           @csrf()
           @method('PUT')
           <input type="hidden" name="giongid" value=" {{ $giong->id }} ">

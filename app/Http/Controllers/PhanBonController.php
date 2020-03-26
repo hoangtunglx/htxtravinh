@@ -15,16 +15,55 @@ class PhanBonController extends Controller
 {
 	public function getIndex()
 	{
-		return view('farmer.phanbon_index', ['dsPhanBon' => PhanBon::all()]);
+		return ['dsPhanBon' => PhanBon::all()];
+	}
+
+	public function getIndexAdmin()
+	{
+		return view('admin.phanbon_index', self::getIndex());
+	}
+
+	public function getIndexManager()
+	{
+		return view('manager.phanbon_index', self::getIndex());
+	}
+
+	public function getIndexOfficer()
+	{
+		return view('officer.phanbon_index', self::getIndex());
+	}
+
+	public function getIndexFarmer()
+	{
+		return view('farmer.phanbon_index', self::getIndex());
 	}
 	
 	public function getCreate()
 	{
-		$loaiPhanBon = LoaiPhanBon::all();
-		return view('farmer.phanbon_create',['loaiPhanBon'=>$loaiPhanBon]);
+		return ['dsLoaiPhanBon'=> LoaiPhanBon::all()];
+	}
+
+	public function getCreateAdmin()
+	{
+		return view('admin.phanbon_create', self::getCreate());
+	}
+
+	public function getCreateManager()
+	{
+		return view('manager.phanbon_create', self::getCreate());
+	}
+
+	public function getCreateOfficer()
+	{
+		return view('officer.phanbon_create', self::getCreate());
+	}
+
+	public function getCreateFarmer()
+	{
+		return view('farmer.phanbon_create', self::getCreate());
 	}
 	
-	public function postCreate(PhanBonRequest $request)
+	public function postCreate(Request $request)
 	{
 		try {
 			$phanBon = new PhanBon();
@@ -35,20 +74,62 @@ class PhanBonController extends Controller
 			$phanBon->nhacungcap = $request->nhacungcap;
 			$phanBon->mota = $request->mota;
 			$phanBon->save();
-			return redirect()->route('farmer.phanbon.index')->with(['result' => True, 'message' => "Lưu thành công!"]);
+			return ['result' => True, 'message' => "Lưu thành công!"];
 		} catch (\Throwable $th) {
-				return redirect()->back()->withInput()->with(['result' => False, 'message'=> $th->getMessage()]);
+				return ['result' => False, 'message'=> $th->getMessage()];
 		}
 	}
 	
-	public function getEdit($id)
-	{	
-		$loaiPhanBon = LoaiPhanBon::all();
-		$phanBon = PhanBon::find($id);
-		return view('farmer.phanbon_edit', ['phanBon' => $phanBon, 'loaiPhanBon' => $loaiPhanBon]);
+	public function postCreateAdmin(PhanBonRequest $request)
+	{
+		$results = self::postCreate($request);
+		return $results['result'] ? redirect()->route('admin.phanbon.index')->with($results) : redirect()->back()->withInput()->with($results);
 	}
 	
-	public function postEdit(PhanBonRequest $request)
+	public function postCreateManager(PhanBonRequest $request)
+	{
+		$results = self::postCreate($request);
+		return $results['result'] ? redirect()->route('manager.phanbon.index')->with($results) : redirect()->back()->withInput()->with($results);
+	}
+	
+	public function postCreateOfficer(PhanBonRequest $request)
+	{
+		$results = self::postCreate($request);
+		return $results['result'] ? redirect()->route('officer.phanbon.index')->with($results) : redirect()->back()->withInput()->with($results);
+	}
+	
+	public function postCreateFarmer(PhanBonRequest $request)
+	{
+		$results = self::postCreate($request);
+		return $results['result'] ? redirect()->route('farmer.phanbon.index')->with($results) : redirect()->back()->withInput()->with($results);
+	}
+	
+	public function getEdit($id)
+	{
+		return ['phanBon' => PhanBon::find($id), 'dsLoaiPhanBon' => LoaiPhanBon::all()];
+	}
+	
+	public function getEditAdmin($id)
+	{
+		return view('admin.phanbon_edit', self::getEdit($id));
+	}
+	
+	public function getEditManager($id)
+	{
+		return view('manager.phanbon_edit', self::getEdit($id));
+	}
+	
+	public function getEditOfficer($id)
+	{
+		return view('officer.phanbon_edit', self::getEdit($id));
+	}
+	
+	public function getEditFarmer($id)
+	{
+		return view('farmer.phanbon_edit', self::getEdit($id));
+	}
+	
+	public function postEdit(Request $request)
 	{
 		$phanBon = PhanBon::findOrFail($request->phanbonid);
 		try {
@@ -59,10 +140,34 @@ class PhanBonController extends Controller
 			$phanBon->nhacungcap = $request->nhacungcap;
 			$phanBon->mota = $request->mota;
 			$phanBon->save();
-			return redirect()->route('farmer.phanbon.index')->with(['result' => True, 'message' => "Lưu thành công!"]);
+			return ['result' => True, 'message' => "Lưu thành công!"];
 		} catch (\Throwable $th) {
-			return redirect()->back()->withInput()->with(['result' => False, 'message'=> $th->getMessage()]);
+			return ['result' => False, 'message'=> $th->getMessage()];
 		}
+	}
+	
+	public function postEditAdmin(PhanBonRequest $request)
+	{
+		$results = self::postEdit($request);
+		return $results['result'] ? redirect()->route('admin.phanbon.index')->with($results) : redirect()->back()->withInput()->with($results);
+	}
+	
+	public function postEditManager(PhanBonRequest $request)
+	{
+		$results = self::postEdit($request);
+		return $results['result'] ? redirect()->route('manager.phanbon.index')->with($results) : redirect()->back()->withInput()->with($results);
+	}
+	
+	public function postEditOfficer(PhanBonRequest $request)
+	{
+		$results = self::postEdit($request);
+		return $results['result'] ? redirect()->route('officer.phanbon.index')->with($results) : redirect()->back()->withInput()->with($results);
+	}
+	
+	public function postEditFarmer(PhanBonRequest $request)
+	{
+		$results = self::postEdit($request);
+		return $results['result'] ? redirect()->route('farmer.phanbon.index')->with($results) : redirect()->back()->withInput()->with($results);
 	}
 	
 	public function getDelete($id)
@@ -74,9 +179,33 @@ class PhanBonController extends Controller
 	{
 		try {
 			PhanBon::destroy($id);
-			return redirect()->route('farmer.phanbon.index')->with(['result' => True, 'message' => "Xóa thành công!"]);
+			return ['result' => True, 'message' => "Xóa thành công!"];
 		} catch (\Throwable $th) {
-				return redirect()->back()->withInput()->with(['result' => False, 'message'=> $th->getMessage()]);
+				return ['result' => False, 'message'=> $th->getMessage()];
 		}
+	}
+	
+	public function postDeleteAdmin($id)
+	{
+		$results = self::postDelete($id);
+		return $results['result'] ? redirect()->route('admin.phanbon.index')->with($results) : redirect()->back()->withInput()->with($results);
+	}
+	
+	public function postDeleteManager($id)
+	{
+		$results = self::postDelete($id);
+		return $results['result'] ? redirect()->route('manager.phanbon.index')->with($results) : redirect()->back()->withInput()->with($results);
+	}
+	
+	public function postDeleteOfficer($id)
+	{
+		$results = self::postDelete($id);
+		return $results['result'] ? redirect()->route('officer.phanbon.index')->with($results) : redirect()->back()->withInput()->with($results);
+	}
+	
+	public function postDeleteFarmer($id)
+	{
+		$results = self::postDelete($id);
+		return $results['result'] ? redirect()->route('farmer.phanbon.index')->with($results) : redirect()->back()->withInput()->with($results);
 	}
 }
