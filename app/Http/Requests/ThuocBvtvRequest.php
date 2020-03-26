@@ -24,6 +24,7 @@ class ThuocBvtvRequest extends FormRequest
     public function rules()
     {
         return [
+            'loaithuocbvtv_id' => 'required',
             'tenthuocbvtv' => 'required'
         ];
     }
@@ -31,6 +32,7 @@ class ThuocBvtvRequest extends FormRequest
     public function messages()
     {
         return [
+            'loaithuocbvtv_id.required' => 'Vui lòng chọn loại thuốc',
             'tenthuocbvtv.required' => 'Vui lòng nhập tên thuốc'
         ];
     }

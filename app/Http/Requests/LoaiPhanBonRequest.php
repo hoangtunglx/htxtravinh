@@ -24,13 +24,13 @@ class LoaiPhanBonRequest extends FormRequest
     public function rules()
     {	
         return [
-            'tenloaiphanbon' => 'required|unique:loaiphanbon,tenloaiphanbon'
+            'tenloaiphanbon' => 'required|unique:loaiphanbon,tenloaiphanbon,'.$this->loaiphanbonid
         ];
     }
 	public function messages()
     {
         return [
-            'tenloaiphanbon.required' => 'Vui lòng nhập tên loại phân bón!',
+            'tenloaiphanbon.required' => 'Vui lòng nhập tên loại phân bón',
 			'tenloaiphanbon.unique' => 'Tên loại phân bón đã tồn tại'
         ];
     }
