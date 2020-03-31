@@ -7,13 +7,13 @@
     <nav aria-label="breadcrumb">
       <ol class="breadcrumb">
         <li class="breadcrumb-item active">
-          <a href=" {{ route('farmer.dashboard') }} "><i class="breadcrumb-icon fa fa-angle-left mr-2"></i>Dashboard</a>
-          <a href=" {{ route('farmer.loaithuocbvtv.index') }} "><i class="breadcrumb-icon fa fa-angle-left mr-2"></i>Loại thuốc Bvtv</a>
+          <a href=" {{ route('admin.dashboard') }} "><i class="breadcrumb-icon fa fa-angle-left mr-2"></i>Dashboard</a>
+          <a href=" {{ route('admin.loaithuocbvtv.index') }} "><i class="breadcrumb-icon fa fa-angle-left mr-2"></i>Loại thuốc Bvtv</a>
         </li>
       </ol>
     </nav>
     <div class="d-md-flex align-items-md-start">
-      <h1 class="page-title mr-sm-auto"> Loại thuốc Bvtv <small> Tạo mới </small> </h1>
+      <h1 class="page-title mr-sm-auto"> Loại thuốc bảo vệ thực vật <small> Tạo mới </small> </h1>
     </div>
   </header>
   <div class="page-section">
@@ -22,7 +22,7 @@
 
         @include('layouts.blocks.flash_message')
 
-        <form action=" {{ route('farmer.loaithuocbvtv.store') }} " method="post">
+        <form action=" {{ route('admin.loaithuocbvtv.store') }} " method="post">
           @csrf()
           <fieldset>
             <div class="form-group">

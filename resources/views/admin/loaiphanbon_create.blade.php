@@ -7,8 +7,8 @@
     <nav aria-label="breadcrumb">
       <ol class="breadcrumb">
         <li class="breadcrumb-item active">
-          <a href=" {{ route('farmer.dashboard') }} "><i class="breadcrumb-icon fa fa-angle-left mr-2"></i>Dashboard</a>
-          <a href=" {{ route('farmer.loaiphanbon.index') }} "><i class="breadcrumb-icon fa fa-angle-left mr-2"></i>Loại phân bón</a>
+          <a href=" {{ route('admin.dashboard') }} "><i class="breadcrumb-icon fa fa-angle-left mr-2"></i>Dashboard</a>
+          <a href=" {{ route('admin.loaiphanbon.index') }} "><i class="breadcrumb-icon fa fa-angle-left mr-2"></i>Loại phân bón</a>
         </li>
       </ol>
     </nav>
@@ -22,7 +22,7 @@
 
         @include('layouts.blocks.flash_message')
 
-        <form action=" {{ route('farmer.loaiphanbon.store') }} " method="post">
+        <form action=" {{ route('admin.loaiphanbon.store') }} " method="post">
           @csrf()
           <fieldset>
             <div class="form-group">

@@ -11,5 +11,10 @@ use Illuminate\Database\Eloquent\Model;
 
 class PhanBon extends Model
 {
-	//
+	protected $table = 'phanbon';
+
+	public function loaiphanbon()
+	{
+		return $this->belongsTo('App\LoaiPhanBon', 'loaiphanbon_id');
+	}
 }

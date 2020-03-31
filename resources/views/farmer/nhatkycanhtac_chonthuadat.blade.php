@@ -19,7 +19,7 @@
         @include('layouts.blocks.flash_message')
         <div class="section-block text-center text-xl-center">
           @foreach($dsThuaDat?? [] as $thuaDat)
-          <a href="{{ route('farmer.nhatky.muavu.thuadat.ghi', ['muavuid' => $muaVuID, 'thuadatid' => $thuaDat->id]) }}" class="visual-picker visual-picker-md has-peek px-6">
+          <a href="{{ route('farmer.nhatky.muavu.thuadat.quytrinh', ['muavuid' => $muaVuID, 'thuadatid' => $thuaDat->id, 'kehoachsanxuatid' => $thuaDat->kehoachsanxuat_id ]) }}" class="visual-picker visual-picker-md has-peek px-6">
             <div class="visual-picker-figure">
               <span class="visual-picker-content"><span class="tile tile-xl bg-info"><i class="oi oi-check oi-3x"></i></span></span> 
             </div>

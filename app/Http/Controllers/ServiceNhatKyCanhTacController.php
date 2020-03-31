@@ -3,7 +3,9 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\MuaVu;
 use App\ThuaDat;
+use App\KeHoachSanXuat;
 
 class ServiceNhatKyCanhTacController extends Controller
 {
@@ -58,7 +60,7 @@ class ServiceNhatKyCanhTacController extends Controller
         -> where('kehoachsanxuat.thoigianbatdau', '<=', date(now()))
         -> where('kehoachsanxuat.thoigianketthuc', '>=', date(now()))
         -> where('kehoachsanxuat.muavu_id', '=', $muaVuId)
-        -> select('thuadat.*')
+        -> select('thuadat.*', 'kehoachsanxuat.id as kehoachsanxuat_id')
         -> get();
 
       switch (count($dsThuaDat)) {
@@ -76,13 +78,30 @@ class ServiceNhatKyCanhTacController extends Controller
       }
     }
 
-    public function getQuytrinh($muaVuId, $thuaDatId)
+    public function getQuytrinh($muaVuId, $thuaDatId, $keHoachSanXuatId)
     {
       // Get the currently authenticated user's ID
       // $userId = Auth::id();
       $userId = 1;
 
-      return view('farmer.nhatkycanhtac_quytrinh');
+      $dsGiaiDoanQuyTrinh = KeHoachSanXuat::findOrFail($keHoachSanXuatId)
+        -> join('vungnguyenlieu', 'vungnguyenlieu.id', '=', 'kehoachsanxuat.vungnguyenlieu_id')
+        -> join('nongsan', 'nongsan.id', '=', 'vungnguyenlieu.nongsan_id')
+        -> join('quytrinh', 'quytrinh.nongsan_id', '=', 'nongsan.id')
+        -> join('giaidoanquytrinh', 'giaidoanquytrinh.quytrinh_id', '=', 'quytrinh.id')
+        -> select('giaidoanquytrinh.*')
+        -> groupBy('giaidoanquytrinh.id')
+        -> get();
 
+      $thuaDat = ThuaDat::findOrFail($thuaDatId);
+      $muaVu = MuaVu::findOrFail($muaVuId);
+      $keHoachSanXuat = KeHoachSanXuat::findOrFail($keHoachSanXuatId);
+
+      return view('farmer.nhatkycanhtac_quytrinh', [
+        'dsGiaiDoanQuyTrinh' => $dsGiaiDoanQuyTrinh,
+        'thuaDat' => $thuaDat,
+        'muaVu' => $muaVu,
+        'keHoachSanXuat' => $keHoachSanXuat
+      ]);
     }
 }

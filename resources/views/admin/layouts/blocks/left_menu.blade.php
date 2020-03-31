@@ -94,17 +94,17 @@
 					</li>
 
 					<li class="menu-item">
-						<a href="{{ route('admin.giong.index') }}" class="menu-link"><span class="menu-icon fa fa-shower"></span> <span class="menu-text">Phân bón</span> </a>
+						<a href="{{ route('admin.phanbon.index') }}" class="menu-link"><span class="menu-icon fa fa-shower"></span> <span class="menu-text">Phân bón</span> </a>
 					</li>
 					<li class="menu-item">
-						<a href="{{ route('admin.giong.index') }}" class="menu-link"><span class="menu-icon far fa-shower"></span> <span class="menu-text">Loại phân bón</span> </a>
+						<a href="{{ route('admin.loaiphanbon.index') }}" class="menu-link"><span class="menu-icon far fa-shower"></span> <span class="menu-text">Loại phân bón</span> </a>
 					</li>
 
 					<li class="menu-item">
-						<a href="{{ route('admin.giong.index') }}" class="menu-link"><span class="menu-icon fa fa-shower"></span> <span class="menu-text">Thuốc BVTV</span> </a>
+						<a href="{{ route('admin.thuocbvtv.index') }}" class="menu-link"><span class="menu-icon fa fa-shower"></span> <span class="menu-text">Thuốc BVTV</span> </a>
 					</li>
 					<li class="menu-item">
-						<a href="{{ route('admin.giong.index') }}" class="menu-link"><span class="menu-icon far fa-shower"></span> <span class="menu-text">Loại thuốc BVTV</span> </a>
+						<a href="{{ route('admin.loaithuocbvtv.index') }}" class="menu-link"><span class="menu-icon far fa-shower"></span> <span class="menu-text">Loại thuốc BVTV</span> </a>
 					</li>
 
 					<li class="menu-item">

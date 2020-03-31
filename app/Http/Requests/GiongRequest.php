@@ -24,6 +24,7 @@ class GiongRequest extends FormRequest
     public function rules()
     {
         return [
+            'loaigiong_id' => 'required',
             'tengiong' => 'required'
         ];
     }
@@ -31,6 +32,7 @@ class GiongRequest extends FormRequest
     public function messages()
     {
         return [
+            'loaigiong_id.required' => 'Vui lòng chọn loại giống',
             'tengiong.required' => 'Vui lòng nhập tên giống'
         ];
     }
