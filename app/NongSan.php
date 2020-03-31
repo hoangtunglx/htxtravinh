@@ -11,5 +11,17 @@ use Illuminate\Database\Eloquent\Model;
 
 class NongSan extends Model
 {
-	//
+	protected $table = 'nongsan';
+	
+	
+	public function LoaiNongSan()
+   {
+      return $this->belongsTo(LoaiNongSan::class,'loainongsan_id','id');
+   }
+   public function ThongTinThiTruong()
+   {
+      return $this->belongsTo(ThongTinThiTruong::class,'thongtinthitruong_id','id');
+   }
+   
+  
 }
