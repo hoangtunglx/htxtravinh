@@ -38,7 +38,11 @@
             <td> {{ $congNo->NguoiDung->hoten }} </td>
             <td> {{ $congNo->donhang_id }} </td>
             <td> {{ $congNo->donthue_id }} </td>
+<<<<<<< HEAD
             <td> {{ $congNo->muavu_id }} </td>
+=======
+            <td> {{ $congNo->MuaVu->tenmuavu }} </td>
+>>>>>>> 6745f17d48ab84ebf1090075ffe3951422a1daf0
             <td> {{ number_format($congNo->sotienconno) }} {{'VND'}} </td>
             <td> {{ Carbon\Carbon::createFromFormat('Y-m-d H:i:s', $congNo->created_at)->format('d/m/Y H:i:s')}} </td>
           </tr>

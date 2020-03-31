@@ -17,5 +17,8 @@ class ThongTinThiTruong extends Model
    	{
       return $this->belongsTo(NongSan::class,'nongsan_id','id');
    	}
+<<<<<<< HEAD
    	
+=======
+>>>>>>> 6745f17d48ab84ebf1090075ffe3951422a1daf0
 }

@@ -55,10 +55,13 @@ Route::prefix('farmer')->name('farmer.')->group(function () {
 	Route::prefix('thong-tin-thi-truong')->name('thongtinthitruong.')->group(function () {
 		Route::get('', 'ThongTinThiTruongController@getIndexFarmer')->name('index');
 	});
+<<<<<<< HEAD
 	/* Chính Sách Nông Nghiệp */
 	Route::prefix('chinh-sach-nong-nghiep')->name('chinhsachnongnghiep.')->group(function () {
 		Route::get('', 'ChinhSachNongNghiepController@getIndexFarmer')->name('index');
 	});
+=======
+>>>>>>> 6745f17d48ab84ebf1090075ffe3951422a1daf0
 });
 
 // Officer - Cán bộ hợp tác xã
@@ -129,6 +132,7 @@ Route::prefix('officer')->name('officer.')->group(function () {
 		Route::put('update', 'ThongTinThiTruongController@postEditOfficer')->name('update');
 		Route::delete('delete/{id}', 'ThongTinThiTruongController@postDeleteOfficer')->name('delete');
 	});
+<<<<<<< HEAD
 	/* Chính sách nông nghiệp */
 	Route::prefix('chinh-sach-nong-nghiep')->name('chinhsachnongnghiep.')->group(function () {
 		Route::get('', 'ChinhSachNongNghiepController@getIndexOfficer')->name('index');
@@ -138,6 +142,8 @@ Route::prefix('officer')->name('officer.')->group(function () {
 		Route::put('update', 'ChinhSachNongNghiepController@postEditOfficer')->name('update');
 		Route::delete('delete/{id}', 'ChinhSachNongNghiepController@postDeleteOfficer')->name('delete');
 	});
+=======
+>>>>>>> 6745f17d48ab84ebf1090075ffe3951422a1daf0
 });
 
 // Manager - Cán bộ quản lý hợp tác xã
@@ -173,10 +179,13 @@ Route::prefix('manager')->name('manager.')->group(function () {
 	Route::prefix('thong-tin-thi-truong')->name('thongtinthitruong.')->group(function () {
 		Route::get('', 'ThongTinThiTruongController@getIndexManager')->name('index');
 	});
+<<<<<<< HEAD
 	/* Chính Sách Nông Nghiệp */
 	Route::prefix('chinh-sach-nong-nghiep')->name('chinhsachnongnghiep.')->group(function () {
 		Route::get('', 'ChinhSachNongNghiepController@getIndexManager')->name('index');
 	});
+=======
+>>>>>>> 6745f17d48ab84ebf1090075ffe3951422a1daf0
 });
 
 // Admin - Quản trị viên
@@ -329,6 +338,7 @@ Route::prefix('admin')->name('admin.')->group(function () {
 		Route::put('update', 'ThongTinThiTruongController@postEditAdmin')->name('update');
 		Route::delete('delete/{id}', 'ThongTinThiTruongController@postDeleteAdmin')->name('delete');
 	});
+<<<<<<< HEAD
 	/* Chính Sách Nông Nghiệp */
 	Route::prefix('chinh-sach-nong-nghiep')->name('chinhsachnongnghiep.')->group(function () {
 		Route::get('', 'ChinhSachNongNghiepController@getIndexAdmin')->name('index');
@@ -340,6 +350,8 @@ Route::prefix('admin')->name('admin.')->group(function () {
 		Route::get('download/{file}', 'ChinhSachNongNghiepController@download')->name('download');
 		Route::get('xemFile/{file}', 'ChinhSachNongNghiepController@xemFile')->name('xemFile');
 	});
+=======
+>>>>>>> 6745f17d48ab84ebf1090075ffe3951422a1daf0
 });
 
 
