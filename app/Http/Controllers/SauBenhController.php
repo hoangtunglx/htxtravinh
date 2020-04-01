@@ -10,7 +10,7 @@ use App\DuBaoSauBenh;
 use App\SauBenh;
 use Illuminate\Http\Request;
 use App\Http\Requests\SauBenhRequest;
-use Illuminate\Support\Facades\Auth;
+
 class SauBenhController extends Controller
 {
 	public function getIndex()

@@ -209,7 +209,7 @@ Route::prefix('officer')->name('officer.')->group(function () {
 		Route::get('create', 'ThongTinThoiTietController@getCreateOfficer')->name('create');
 		Route::post('store', 'ThongTinThoiTietController@postCreateOfficer')->name('store');
 		Route::get('edit/{id}', 'ThongTinThoiTietController@getEditOfficer')->name('edit');
-		Route::put('update', 'ThongTinThoiTietController@')->name('update');
+		Route::put('update', 'ThongTinThoiTietController@postEditOfficer')->name('update');
 		Route::delete('delete/{id}', 'ThongTinThoiTietController@postDeleteOfficer')->name('delete');
 		});
 
@@ -234,7 +234,8 @@ Route::prefix('officer')->name('officer.')->group(function () {
 		Route::post('store', 'ThongTinMoiTruongController@postCreateOfficer')->name('store');
 		Route::get('edit/{id}', 'ThongTinMoiTruongController@getEditOfficer')->name('edit');
 		Route::put('update', 'ThongTinMoiTruongController@postEditOfficer')->name('update');
-		Route::delete ('delete/{id}', 'ThongTinMoiTruongController@postDeleteOfficer')->name('delete');
+		Route::get ('delete/{id}', 'ThongTinMoiTruongController@getDeleteOfficer')->name('delete');
+		//Route::get ('delete/{id}', 'ThongTinMoiTruongController@getDeleteAdmin')->name('delete');
 
 	});
 		});
@@ -433,7 +434,46 @@ Route::prefix('admin')->name('admin.')->group(function () {
 		Route::put('update', 'SauBenhController@postEditAdmin')->name('update');
 		Route::get('delete/{id}', 'SauBenhController@postDeleteAdmin')->name('delete');
 });
+		/*Thông tin moi trường */
+
+		Route::prefix('thong-tin-moi-truong')->name('thongtinmoitruong.')->group(function () {
+		Route::get('', 'ThongTinMoiTruongController@getThongtinmoitruong_thuadatAdmin');
+		Route::get('index/{id}', 'ThongTinMoiTruongController@getIndexAdmin')->name('index');
+		Route::get('create/{id}', 'ThongTinMoiTruongController@getCreateAdmin')->name('create');
+		Route::post('store', 'ThongTinMoiTruongController@postCreateAdmin')->name('store');
+		Route::get('edit/{id}', 'ThongTinMoiTruongController@getEditAdmin')->name('edit');
+		Route::put('update', 'ThongTinMoiTruongController@postEditAdmin')->name('update');
+		/*Route::delete ('delete/{id}', 'ThongTinMoiTruongController@postDeleteAdmin')->name('delete');*/
+		Route::get ('delete/{id}', 'ThongTinMoiTruongController@getDeleteAdmin')->name('delete');
+
+
 		});
+
+		/*Thông tin thời tiết */
+		Route::prefix('thong-tin-thoi-tiet')->name('thongtinthoitiet.')->group(function () {
+		Route::get('', 'ThongTinThoiTietController@getIndexAdmin')->name('index');
+		Route::get('create', 'ThongTinThoiTietController@getCreateAdmin')->name('create');
+		Route::post('store', 'ThongTinThoiTietController@postCreateAdmin')->name('store');
+		Route::get('edit/{id}', 'ThongTinThoiTietController@getEditAdmin')->name('edit');
+		Route::put('update', 'ThongTinThoiTietController@postEditAdmin')->name('update');
+		Route::delete('delete/{id}', 'ThongTinThoiTietController@postDeleteAdmin')->name('delete');
+
+
+});
+			/*Gợi ý phân bón nước tưới */
+		Route::prefix('goi-y-phan-bon-nuoc-tuoi')->name('goiyphanbonnuoctuoi.')->group(function () {
+		Route::get('', 'GoiYPhanBonNuocTuoiController@getIndexAdmin')->name('index');
+		Route::get('create', 'GoiYPhanBonNuocTuoiController@getCreateAdmin')->name('create');
+		Route::post('store', 'GoiYPhanBonNuocTuoiController@postCreateAdmin')->name('store');
+		Route::get('edit/{id}', 'GoiYPhanBonNuocTuoiController@getEditAdmin')->name('edit');
+		Route::put('update', 'GoiYPhanBonNuocTuoiController@postEditAdmin')->name('update');
+		Route::delete('delete/{id}', 'GoiYPhanBonNuocTuoiController@postDeleteAdmin')->name('delete');
+
+
+});
+
+
+	});
 Auth::routes();
 
 Route::get('/', 'HomeController@index')->name('home');
