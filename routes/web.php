@@ -320,8 +320,27 @@ Route::prefix('admin')->name('admin.')->group(function () {
 		Route::put('update', 'TieuChuanSXController@postEditAdmin')->name('update');
 		Route::delete('delete/{id}', 'TieuChuanSXController@postDeleteAdmin')->name('delete');
 	});
+	
+	
+/* dự báo sâu bệnh */
+
+		Route::prefix('du-bao-sau-benh')->name('dubaosaubenh.')->group(function () {
+		Route::get('', 'DuBaoSauBenhController@getIndexOfficer')->name('index');
+		Route::get('create', 'DuBaoSauBenhController@getCreateOfficer')->name('create');
+		Route::post('store', 'DuBaoSauBenhController@postCreateOfficer')->name('store');
+		Route::get('edit/{id}', 'DuBaoSauBenhController@getEditOfficer')->name('edit');
+		Route::put('update', 'DuBaoSauBenhController@postEditOfficer')->name('update');
+		Route::delete('delete/{id}', 'DuBaoSauBenhController@postDeleteOfficer')->name('delete');
 
 });
+		/* Sau Benh */
+		Route::prefix('sau-benh')->name('saubenh.')->group(function () {
+		Route::get('', 'SauBenhController@getIndexAdmin')->name('index');
+		Route::get('create', 'SauBenhController@getCreateAdmin')->name('create');
+		Route::post('store', 'SauBenhController@postCreateAdmin')->name('store');
+		Route::get('edit/{id}', 'SauBenhController@getEditAdmin')->name('edit');
+		Route::put('update', 'SauBenhController@postEditAdmin')->name('update');
+		Route::get('delete/{id}', 'SauBenhController@postDeleteAdmin')->name('delete');
 
 Auth::routes();
 

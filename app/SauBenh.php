@@ -11,5 +11,11 @@ use Illuminate\Database\Eloquent\Model;
 
 class SauBenh extends Model
 {
-	//
+	protected $table = 'saubenh';
+
+
+public function DuBaoSauBenh()
+	{
+		return $this->hasMany('App\DuBaoSauBenh','saubenh_id','id');
+	}
 }
