@@ -10,6 +10,7 @@ use App\DuBaoSauBenh;
 use App\SauBenh;
 use Illuminate\Http\Request;
 use App\Http\Requests\SauBenhRequest;
+use Illuminate\Support\Facades\Auth;
 class SauBenhController extends Controller
 {
 	public function getIndex()
@@ -144,6 +145,25 @@ class SauBenhController extends Controller
 
 
 		public function postDeleteAdmin($id)
+		{
+			$ldsDuBaoSauBenh=DuBaoSauBenh::where('saubenh_id','=',$id)->get();
+			
+			if(count($ldsDuBaoSauBenh)==0  ) 
+			{
+				$sauBenh=SauBenh::find($id);
+
+				$sauBenh->delete();
+
+				return redirect()->back()->with('result','alert-success')->with('message','Xóa thành công');
+			}
+			else
+			{
+				return redirect()->back()->with('message','Không thể xóa, gàng buộc khóa ngoại');
+			}
+
+		}
+
+		public function postDeleteOfficer($id)
 		{
 			$ldsDuBaoSauBenh=DuBaoSauBenh::where('saubenh_id','=',$id)->get();
 			

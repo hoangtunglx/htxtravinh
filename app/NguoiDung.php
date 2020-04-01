@@ -24,4 +24,27 @@ class NguoiDung extends Authenticatable
 	protected $casts = [
 		'email_verified_at' => 'datetime',
 	];
+
+	protected $table = 'nguoidung';
+
+	public function ThongTinMoiTruong()
+	{
+		return $this->hasMany('App\ThongTinMoiTruong','nguoidung_id','id');
+
+	}
+	public function ThongTinThoiTiet()
+	{
+		return $this->hasMany('App\ThongTinThoiTiet','nguoidung_id','id');
+	}
+
+	public function DuBaoSauBenh()
+	{
+		return $this->hasMany('App\DuBaoSauBenh','nguoidung_id','id');
+	}
+	public function GoiYPhanBonNuocTuoi()
+	{
+		return $this->hasMany('App\GoiYPhanBonNuocTuoi','nguoidung_id','id');
+	}
+
+
 }

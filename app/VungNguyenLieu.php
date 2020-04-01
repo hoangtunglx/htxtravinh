@@ -11,5 +11,14 @@ use Illuminate\Database\Eloquent\Model;
 
 class VungNguyenLieu extends Model
 {
-	//
+	protected $table = 'vungnguyenlieu';
+
+	public function DuBaoSauBenh()
+	{
+		return $this->hasMany('App\DuBaoSauBenh','vungnguyenlieu_id','id');
+	}
+	public function ThongTinThoiTiet()
+	{
+		return $this->hasMany('App\ThongTinThoiTiet','vungnguyenlieu_id','id');
+	}
 }

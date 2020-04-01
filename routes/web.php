@@ -71,6 +71,30 @@ Route::prefix('farmer')->name('farmer.')->group(function () {
 		Route::get('mua-vu/{id}', 'ServiceNhatKyCanhTacController@getThuaDat')->name('muavu.thuadat');
 		Route::get('mua-vu/thua-dat/{muavuid}/{thuadatid}/{kehoachsanxuatid}', 'ServiceNhatKyCanhTacController@getQuyTrinh')->name('muavu.thuadat.quytrinh');
 	});
+	/* Sâu bệnh  */
+		Route::prefix('sau-benh')->name('saubenh.')->group(function () {
+		Route::get('', 'SauBenhController@getIndexFarmer')->name('index');
+	});
+	/* thông tin thời tiết */
+		Route::prefix('thong-tin-thoi-tiet')->name('thongtinthoitiet.')->group(function () {
+		Route::get('', 'ThongTinThoiTietController@getIndexFarmer')->name('index');
+	});
+
+	/* Gợi ý phân bón nước tưới */
+
+		Route::prefix('goi-y-phan-bon-nuoc-tuoi')->name('goiyphanbonnuoctuoi.')->group(function () {
+		Route::get('', 'GoiYPhanBonNuocTuoiController@getIndexFarmer')->name('index');
+	});
+	/* Dự báo sâu bệnh */
+
+		Route::prefix('du-bao-sau-benh')->name('dubaosaubenh.')->group(function () {
+		Route::get('', 'DuBaoSauBenhController@getIndexFarmer')->name('index');
+	});
+/* Thông tin môi trường */
+		Route::prefix('thong-tin-moi-truong')->name('thongtinmoitruong.')->group(function () {
+		Route::get('', 'ThongTinMoiTruongController@getThongtinmoitruong_thuadatFarmer');
+		Route::get('index/{id}', 'ThongTinMoiTruongController@getIndexFarmer')->name('index');
+		});
 	
 });
 
@@ -170,7 +194,50 @@ Route::prefix('officer')->name('officer.')->group(function () {
 		Route::delete('delete/{id}', 'TieuChuanSXController@postDeleteOfficer')->name('delete');
 	});
 
-});
+	/* sâu bệnh  */
+		Route::prefix('sau-benh')->name('saubenh.')->group(function () {
+		Route::get('', 'SauBenhController@getIndexOfficer')->name('index');
+		Route::get('create', 'SauBenhController@getCreateOfficer')->name('create');
+		Route::post('store', 'SauBenhController@postCreateOfficer')->name('store');
+		Route::get('edit/{id}', 'SauBenhController@getEditOfficer')->name('edit');
+		Route::put('update', 'SauBenhController@postEditOfficer')->name('update');
+		Route::delete('delete/{id}', 'SauBenhController@postDeleteOfficer')->name('delete');
+		});
+/*thông tin thời tiết  */
+		Route::prefix('thong-tin-thoi-tiet')->name('thongtinthoitiet.')->group(function () {
+		Route::get('', 'ThongTinThoiTietController@getIndexOfficer')->name('index');
+		Route::get('create', 'ThongTinThoiTietController@getCreateOfficer')->name('create');
+		Route::post('store', 'ThongTinThoiTietController@postCreateOfficer')->name('store');
+		Route::get('edit/{id}', 'ThongTinThoiTietController@getEditOfficer')->name('edit');
+		Route::put('update', 'ThongTinThoiTietController@')->name('update');
+		Route::delete('delete/{id}', 'ThongTinThoiTietController@postDeleteOfficer')->name('delete');
+		});
+
+/* dự báo sâu bệnh */
+
+		Route::prefix('du-bao-sau-benh')->name('dubaosaubenh.')->group(function () {
+		Route::get('', 'DuBaoSauBenhController@getIndexOfficer')->name('index');
+		Route::get('create', 'DuBaoSauBenhController@getCreateOfficer')->name('create');
+		Route::post('store', 'DuBaoSauBenhController@postCreateOfficer')->name('store');
+		Route::get('edit/{id}', 'DuBaoSauBenhController@getEditOfficer')->name('edit');
+		Route::put('update', 'DuBaoSauBenhController@postEditOfficer')->name('update');
+		Route::delete('delete/{id}', 'DuBaoSauBenhController@postDeleteOfficer')->name('delete');
+
+
+		});
+/* thông tin môi trường */
+
+		Route::prefix('thong-tin-moi-truong')->name('thongtinmoitruong.')->group(function () {
+		Route::get('', 'ThongTinMoiTruongController@getThongtinmoitruong_thuadatOfficer');
+		Route::get('index/{id}', 'ThongTinMoiTruongController@getIndexOfficer')->name('index');
+		Route::get('create/{id}', 'ThongTinMoiTruongController@getCreateOfficer')->name('create');
+		Route::post('store', 'ThongTinMoiTruongController@postCreateOfficer')->name('store');
+		Route::get('edit/{id}', 'ThongTinMoiTruongController@getEditOfficer')->name('edit');
+		Route::put('update', 'ThongTinMoiTruongController@postEditOfficer')->name('update');
+		Route::delete ('delete/{id}', 'ThongTinMoiTruongController@postDeleteOfficer')->name('delete');
+
+	});
+		});
 
 // Manager - Cán bộ quản lý hợp tác xã
 Route::prefix('manager')->name('manager.')->group(function () {
@@ -220,6 +287,30 @@ Route::prefix('manager')->name('manager.')->group(function () {
 	/* Tieu Chuan SX */
 	Route::prefix('tieu-chuan-san-xuat')->name('tieuchuansx.')->group(function () {
 		Route::get('', 'TieuChuanSXController@getIndexManager')->name('index');
+	});
+
+	/* Sâu bệnh */
+		Route::prefix('sau-benh')->name('saubenh.')->group(function () {
+		Route::get('', 'SauBenhController@getIndexManager')->name('index');
+	});
+
+	/* thông tin thời tiết */
+		Route::prefix('thong-tin-thoi-tiet')->name('thongtinthoitiet.')->group(function () {
+		Route::get('', 'ThongTinThoiTietController@getIndexManager')->name('index');
+		});
+
+	/* thông tin gợi ý */
+		Route::prefix('goi-y-phan-bon-nuoc-tuoi')->name('goiyphanbonnuoctuoi.')->group(function () {
+		Route::get('', 'GoiYPhanBonNuocTuoiController@getIndexManager')->name('index');
+	});
+	/* thông tin du bao */
+		Route::prefix('du-bao-sau-benh')->name('dubaosaubenh.')->group(function () {
+		Route::get('', 'DuBaoSauBenhController@getIndexManager')->name('index');
+	});
+	/* Thông tin môi trường */
+		Route::prefix('thong-tin-moi-truong')->name('thongtinmoitruong.')->group(function () {
+		Route::get('', 'ThongTinMoiTruongController@getThongtinmoitruong_thuadatManager');
+		Route::get('index/{id}', 'ThongTinMoiTruongController@getIndexManager')->name('index');
 	});
 
 });
@@ -341,7 +432,8 @@ Route::prefix('admin')->name('admin.')->group(function () {
 		Route::get('edit/{id}', 'SauBenhController@getEditAdmin')->name('edit');
 		Route::put('update', 'SauBenhController@postEditAdmin')->name('update');
 		Route::get('delete/{id}', 'SauBenhController@postDeleteAdmin')->name('delete');
-
+});
+		});
 Auth::routes();
 
 Route::get('/', 'HomeController@index')->name('home');

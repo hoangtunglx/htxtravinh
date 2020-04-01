@@ -12,4 +12,9 @@ use Illuminate\Database\Eloquent\Model;
 class MuaVu extends Model
 {
 	protected $table = 'muavu';
+
+	public function DuBaoSauBenh()
+	{
+		return $this->hasMany('App\DuBaoSauBenh','muavu_id','id');
+	}
 }

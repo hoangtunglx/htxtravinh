@@ -14,8 +14,8 @@ class SauBenh extends Model
 	protected $table = 'saubenh';
 
 
-public function DuBaoSauBenh()
+/*public function DuBaoSauBenh()
 	{
 		return $this->hasMany('App\DuBaoSauBenh','saubenh_id','id');
-	}
+	}*/
 }
