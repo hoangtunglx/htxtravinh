@@ -238,6 +238,18 @@ Route::prefix('officer')->name('officer.')->group(function () {
 		//Route::get ('delete/{id}', 'ThongTinMoiTruongController@getDeleteAdmin')->name('delete');
 
 	});
+
+			/*Gợi ý phân bón nước tưới */
+		Route::prefix('goi-y-phan-bon-nuoc-tuoi')->name('goiyphanbonnuoctuoi.')->group(function () {
+		Route::get('', 'GoiYPhanBonNuocTuoiController@getIndexOfficer')->name('index');
+		Route::get('create', 'GoiYPhanBonNuocTuoiController@getCreateOfficer')->name('create');
+		Route::post('store', 'GoiYPhanBonNuocTuoiController@postCreateOfficer')->name('store');
+		Route::get('edit/{id}', 'GoiYPhanBonNuocTuoiController@getEditOfficer')->name('edit');
+		Route::put('update', 'GoiYPhanBonNuocTuoiController@postEditOfficer')->name('update');
+		Route::delete('delete/{id}', 'GoiYPhanBonNuocTuoiController@postDeleteOfficer')->name('delete');
+
+
+});
 		});
 
 // Manager - Cán bộ quản lý hợp tác xã
