@@ -10,7 +10,6 @@ use Mockery\Exception\NoMatchingExpectationException;
 use PHPUnit\Framework\TestCase as PHPUnitTestCase;
 use Symfony\Component\Console\Input\ArrayInput;
 use Symfony\Component\Console\Output\BufferedOutput;
-use Symfony\Component\Console\Output\Output;
 
 class PendingCommand
 {
@@ -74,10 +73,10 @@ class PendingCommand
     }
 
     /**
-     * Specify a question that should be asked when the command runs.
+     * Specify an expected question that will be asked when the command runs.
      *
      * @param  string  $question
-     * @param  string  $answer
+     * @param  string|bool  $answer
      * @return $this
      */
     public function expectsQuestion($question, $answer)
@@ -85,6 +84,37 @@ class PendingCommand
         $this->test->expectedQuestions[] = [$question, $answer];
 
         return $this;
+    }
+
+    /**
+     * Specify an expected confirmation question that will be asked when the command runs.
+     *
+     * @param  string  $question
+     * @param  string  $answer
+     * @return $this
+     */
+    public function expectsConfirmation($question, $answer = 'no')
+    {
+        return $this->expectsQuestion($question, strtolower($answer) === 'yes');
+    }
+
+    /**
+     * Specify an expected choice question with expected answers that will be asked/shown when the command runs.
+     *
+     * @param  string  $question
+     * @param  string  $answer
+     * @param  array  $answers
+     * @param  bool  $strict
+     * @return $this
+     */
+    public function expectsChoice($question, $answer, $answers, $strict = false)
+    {
+        $this->test->expectedChoices[$question] = [
+            'expected' => $answers,
+            'strict' => $strict,
+        ];
+
+        return $this->expectsQuestion($question, $answer);
     }
 
     /**
@@ -170,6 +200,10 @@ class PendingCommand
                 ->once()
                 ->ordered()
                 ->with(Mockery::on(function ($argument) use ($question) {
+                    if (isset($this->test->expectedChoices[$question[0]])) {
+                        $this->test->expectedChoices[$question[0]]['actual'] = $argument->getAutocompleterValues();
+                    }
+
                     return $argument->getQuestion() == $question[0];
                 }))
                 ->andReturnUsing(function () use ($question, $i) {

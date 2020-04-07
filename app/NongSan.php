@@ -13,13 +13,13 @@ class NongSan extends Model
 {
 	protected $table = 'nongsan';
 	
-   public function LoaiNongSan()
-   {
-      return $this->belongsTo('App\LoaiNongSan', 'loainongsan_id');
-   }
-   public function ThongTinThiTruong()
-   {
-      return $this->belongsTo('App\ThongTinThiTruong', 'thongtinthitruong_id');
-   }
-   
+	public function LoaiNongSan()
+	{
+		return $this->belongsTo('App\LoaiNongSan', 'loainongsan_id');
+	}
+	
+	public function ThongTinThiTruong()
+	{
+		return $this->belongsTo('App\ThongTinThiTruong', 'thongtinthitruong_id');
+	}
 }

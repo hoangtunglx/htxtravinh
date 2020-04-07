@@ -3,6 +3,7 @@
 namespace Illuminate\Http\Client;
 
 use GuzzleHttp\Client;
+use GuzzleHttp\Cookie\CookieJar;
 use GuzzleHttp\Exception\ConnectException;
 use GuzzleHttp\HandlerStack;
 use Illuminate\Support\Traits\Macroable;
@@ -245,9 +246,7 @@ class PendingRequest
     public function withBasicAuth(string $username, string $password)
     {
         return tap($this, function ($request) use ($username, $password) {
-            return $this->options = array_merge_recursive($this->options, [
-                'auth' => [$username, $password],
-            ]);
+            return $this->options['auth'] = [$username, $password];
         });
     }
 
@@ -261,9 +260,7 @@ class PendingRequest
     public function withDigestAuth($username, $password)
     {
         return tap($this, function ($request) use ($username, $password) {
-            return $this->options = array_merge_recursive($this->options, [
-                'auth' => [$username, $password, 'digest'],
-            ]);
+            return $this->options['auth'] = [$username, $password, 'digest'];
         });
     }
 
@@ -276,22 +273,23 @@ class PendingRequest
      */
     public function withToken($token, $type = 'Bearer')
     {
-        return $this->withHeaders([
-            'Authorization' => trim($type.' '.$token),
-        ]);
+        return tap($this, function ($request) use ($token, $type) {
+            return $this->options['headers']['Authorization'] = trim($type.' '.$token);
+        });
     }
 
     /**
      * Specify the cookies that should be included with the request.
      *
      * @param  array  $cookies
+     * @param  string  $domain
      * @return $this
      */
-    public function withCookies(array $cookies)
+    public function withCookies(array $cookies, string $domain)
     {
-        return tap($this, function ($request) use ($cookies) {
+        return tap($this, function ($request) use ($cookies, $domain) {
             return $this->options = array_merge_recursive($this->options, [
-                'cookies' => $cookies,
+                'cookies' => CookieJar::fromArray($cookies, $domain),
             ]);
         });
     }
@@ -304,9 +302,7 @@ class PendingRequest
     public function withoutRedirecting()
     {
         return tap($this, function ($request) {
-            return $this->options = array_merge_recursive($this->options, [
-                'allow_redirects' => false,
-            ]);
+            return $this->options['allow_redirects'] = false;
         });
     }
 
@@ -318,9 +314,7 @@ class PendingRequest
     public function withoutVerifying()
     {
         return tap($this, function ($request) {
-            return $this->options = array_merge_recursive($this->options, [
-                'verify' => false,
-            ]);
+            return $this->options['verify'] = false;
         });
     }
 
@@ -382,10 +376,10 @@ class PendingRequest
      * Issue a GET request to the given URL.
      *
      * @param  string  $url
-     * @param  array  $query
+     * @param  array|string|null  $query
      * @return \Illuminate\Http\Client\Response
      */
-    public function get(string $url, array $query = [])
+    public function get(string $url, $query = null)
     {
         return $this->send('GET', $url, [
             'query' => $query,
@@ -474,7 +468,6 @@ class PendingRequest
             try {
                 return tap(new Response($this->buildClient()->request($method, $url, $this->mergeOptions([
                     'laravel_data' => $options[$this->bodyFormat] ?? [],
-                    'query' => $this->parseQueryParams($url),
                     'on_stats' => function ($transferStats) {
                         $this->transferStats = $transferStats;
                     },
@@ -585,7 +578,7 @@ class PendingRequest
     /**
      * Execute the "before sending" callbacks.
      *
-     * @param  \GuzzleHttp\Psr7\RequestInterface
+     * @param  \GuzzleHttp\Psr7\RequestInterface  $request
      * @param  array  $options
      * @return \Closure
      */
@@ -608,19 +601,6 @@ class PendingRequest
     public function mergeOptions(...$options)
     {
         return array_merge_recursive($this->options, ...$options);
-    }
-
-    /**
-     * Parse the query parameters in the given URL.
-     *
-     * @param  string  $url
-     * @return array
-     */
-    public function parseQueryParams(string $url)
-    {
-        return tap([], function (&$query) use ($url) {
-            parse_str(parse_url($url, PHP_URL_QUERY), $query);
-        });
     }
 
     /**
