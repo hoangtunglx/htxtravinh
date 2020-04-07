@@ -38,6 +38,6 @@ class CreatePhanBonTable extends Migration
 	 */
 	public function down()
 	{
-		Schema::dropIfExists('phan_bons');
+		Schema::dropIfExists('phanbon');
 	}
 }

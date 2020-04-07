@@ -41,6 +41,6 @@ class CreateVatTuTable extends Migration
 	 */
 	public function down()
 	{
-		Schema::dropIfExists('vat_tus');
+		Schema::dropIfExists('vattu');
 	}
 }

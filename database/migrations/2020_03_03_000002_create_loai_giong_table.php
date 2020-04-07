@@ -34,6 +34,6 @@ class CreateLoaiGiongTable extends Migration
 	 */
 	public function down()
 	{
-		Schema::dropIfExists('loai_giongs');
+		Schema::dropIfExists('loaigiong');
 	}
 }

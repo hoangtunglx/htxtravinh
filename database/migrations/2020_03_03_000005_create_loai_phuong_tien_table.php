@@ -34,6 +34,6 @@ class CreateLoaiPhuongTienTable extends Migration
 	 */
 	public function down()
 	{
-		Schema::dropIfExists('loai_phuong_tiens');
+		Schema::dropIfExists('loaiphuongtien');
 	}
 }

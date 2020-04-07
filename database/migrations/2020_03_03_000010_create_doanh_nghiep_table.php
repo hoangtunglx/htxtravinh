@@ -37,6 +37,6 @@ class CreateDoanhNghiepTable extends Migration
 	 */
 	public function down()
 	{
-		Schema::dropIfExists('doanh_nghieps');
+		Schema::dropIfExists('doanhnghiep');
 	}
 }

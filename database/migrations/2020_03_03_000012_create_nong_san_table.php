@@ -35,6 +35,6 @@ class CreateNongSanTable extends Migration
 	 */
 	public function down()
 	{
-		Schema::dropIfExists('nong_sans');
+		Schema::dropIfExists('nongsan');
 	}
 }

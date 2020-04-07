@@ -37,6 +37,6 @@ class CreateCongNoTable extends Migration
 	 */
 	public function down()
 	{
-		Schema::dropIfExists('cong_nos');
+		Schema::dropIfExists('congno');
 	}
 }

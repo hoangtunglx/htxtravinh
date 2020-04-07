@@ -38,6 +38,6 @@ class CreateSauBenhTable extends Migration
 	 */
 	public function down()
 	{
-		Schema::dropIfExists('sau_benhs');
+		Schema::dropIfExists('saubenh');
 	}
 }

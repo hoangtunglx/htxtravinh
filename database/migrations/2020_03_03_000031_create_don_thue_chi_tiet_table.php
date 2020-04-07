@@ -39,6 +39,6 @@ class CreateDonThueChiTietTable extends Migration
 	 */
 	public function down()
 	{
-		Schema::dropIfExists('don_thue__chi_tiets');
+		Schema::dropIfExists('donthue_chitiet');
 	}
 }

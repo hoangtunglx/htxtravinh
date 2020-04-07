@@ -39,6 +39,6 @@ class CreateChinhSachNongNghiepTable extends Migration
 	 */
 	public function down()
 	{
-		Schema::dropIfExists('chinh_sach_nong_nghieps');
+		Schema::dropIfExists('chinhsachnongnghiep');
 	}
 }

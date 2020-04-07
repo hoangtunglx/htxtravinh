@@ -37,6 +37,6 @@ class CreateDonThueTable extends Migration
 	 */
 	public function down()
 	{
-		Schema::dropIfExists('don_thues');
+		Schema::dropIfExists('donthue');
 	}
 }

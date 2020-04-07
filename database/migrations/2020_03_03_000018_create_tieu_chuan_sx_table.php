@@ -35,6 +35,6 @@ class CreateTieuChuanSXTable extends Migration
 	 */
 	public function down()
 	{
-		Schema::dropIfExists('tieu_chuan_s_x_e_s');
+		Schema::dropIfExists('tieuchuansx');
 	}
 }

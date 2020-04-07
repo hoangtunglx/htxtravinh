@@ -36,6 +36,6 @@ class CreateKeHoachSanXuatThuaDatTable extends Migration
 	 */
 	public function down()
 	{
-		Schema::dropIfExists('ke_hoach_san_xuat__thua_dats');
+		Schema::dropIfExists('kehoachsanxuat_thuadat');
 	}
 }

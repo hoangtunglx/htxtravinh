@@ -41,6 +41,6 @@ class CreateKeHoachSanXuatTable extends Migration
 	 */
 	public function down()
 	{
-		Schema::dropIfExists('ke_hoach_san_xuats');
+		Schema::dropIfExists('kehoachsanxuat');
 	}
 }

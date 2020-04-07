@@ -37,6 +37,6 @@ class CreateDonHangTable extends Migration
 	 */
 	public function down()
 	{
-		Schema::dropIfExists('don_hangs');
+		Schema::dropIfExists('donhang');
 	}
 }

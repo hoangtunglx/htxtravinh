@@ -39,6 +39,6 @@ class CreateNhatKyCanhTacChiTietTable extends Migration
 	 */
 	public function down()
 	{
-		Schema::dropIfExists('nhat_ky_canh_tac__chi_tiets');
+		Schema::dropIfExists('nhatkycanhtac_chitiet');
 	}
 }

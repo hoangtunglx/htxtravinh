@@ -34,6 +34,6 @@ class CreateLoaiNongSanTable extends Migration
 	 */
 	public function down()
 	{
-		Schema::dropIfExists('loai_nong_sans');
+		Schema::dropIfExists('loainongsan');
 	}
 }

@@ -39,6 +39,6 @@ class CreateThuocBVTVTable extends Migration
 	 */
 	public function down()
 	{
-		Schema::dropIfExists('thuoc_b_v_t_v_s');
+		Schema::dropIfExists('thuocbvtv');
 	}
 }

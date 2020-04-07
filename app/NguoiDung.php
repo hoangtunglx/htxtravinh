@@ -14,9 +14,18 @@ use Illuminate\Notifications\Notifiable;
 class NguoiDung extends Authenticatable
 {
 	use Notifiable;
-	
+	protected $table = 'nguoidung';
 	protected $fillable = [
-		'name', 'email', 'password',
+		'hoptacxa_id',
+		'name',
+		'tendangnhap',
+		'email',
+		'password',
+		'quyenhan',
+		'diachi',
+		'sodienthoai',
+		'kichhoat',
+		'khoa',
 	];
 	protected $hidden = [
 		'password', 'remember_token',

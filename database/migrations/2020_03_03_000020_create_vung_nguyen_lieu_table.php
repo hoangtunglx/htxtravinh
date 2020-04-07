@@ -39,6 +39,6 @@ class CreateVungNguyenLieuTable extends Migration
 	 */
 	public function down()
 	{
-		Schema::dropIfExists('vung_nguyen_lieus');
+		Schema::dropIfExists('vungnguyenlieu');
 	}
 }

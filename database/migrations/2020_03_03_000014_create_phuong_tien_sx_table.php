@@ -44,6 +44,6 @@ class CreatePhuongTienSXTable extends Migration
 	 */
 	public function down()
 	{
-		Schema::dropIfExists('phuong_tien_s_x_e_s');
+		Schema::dropIfExists('phuongtiensx');
 	}
 }

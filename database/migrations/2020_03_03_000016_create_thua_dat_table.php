@@ -38,6 +38,6 @@ class CreateThuaDatTable extends Migration
 	 */
 	public function down()
 	{
-		Schema::dropIfExists('thua_dats');
+		Schema::dropIfExists('thuadat');
 	}
 }

@@ -37,6 +37,6 @@ class CreateHopTacXaTable extends Migration
 	 */
 	public function down()
 	{
-		Schema::dropIfExists('hop_tac_xas');
+		Schema::dropIfExists('hoptacxa');
 	}
 }

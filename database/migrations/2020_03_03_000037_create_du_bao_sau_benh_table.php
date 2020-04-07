@@ -38,6 +38,6 @@ class CreateDuBaoSauBenhTable extends Migration
 	 */
 	public function down()
 	{
-		Schema::dropIfExists('du_bao_sau_benhs');
+		Schema::dropIfExists('dubaosaubenh');
 	}
 }

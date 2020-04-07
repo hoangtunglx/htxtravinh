@@ -36,6 +36,6 @@ class CreateGiaiDoanQuyTrinhTable extends Migration
 	 */
 	public function down()
 	{
-		Schema::dropIfExists('giai_doan_quy_trinhs');
+		Schema::dropIfExists('giaidoanquytrinh');
 	}
 }

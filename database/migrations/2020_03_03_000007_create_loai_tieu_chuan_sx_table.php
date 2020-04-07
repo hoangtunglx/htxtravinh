@@ -34,6 +34,6 @@ class CreateLoaiTieuChuanSXTable extends Migration
 	 */
 	public function down()
 	{
-		Schema::dropIfExists('loai_tieu_chuan_s_x_e_s');
+		Schema::dropIfExists('loaitieuchuansx');
 	}
 }

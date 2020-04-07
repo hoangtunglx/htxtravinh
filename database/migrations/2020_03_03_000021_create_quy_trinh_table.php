@@ -36,6 +36,6 @@ class CreateQuyTrinhTable extends Migration
 	 */
 	public function down()
 	{
-		Schema::dropIfExists('quy_trinhs');
+		Schema::dropIfExists('quytrinh');
 	}
 }

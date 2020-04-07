@@ -34,6 +34,6 @@ class CreateLoaiThuocBVTVTable extends Migration
 	 */
 	public function down()
 	{
-		Schema::dropIfExists('loai_thuoc_b_v_t_v_s');
+		Schema::dropIfExists('loaithuocbvtv');
 	}
 }

@@ -34,6 +34,6 @@ class CreateLoaiVatTuTable extends Migration
 	 */
 	public function down()
 	{
-		Schema::dropIfExists('loai_vat_tus');
+		Schema::dropIfExists('loaivattu');
 	}
 }

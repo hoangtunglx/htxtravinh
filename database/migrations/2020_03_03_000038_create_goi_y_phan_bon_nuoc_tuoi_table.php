@@ -37,6 +37,6 @@ class CreateGoiYPhanBonNuocTuoiTable extends Migration
 	 */
 	public function down()
 	{
-		Schema::dropIfExists('goi_y_phan_bon_nuoc_tuois');
+		Schema::dropIfExists('goiyphanbonnuoctuoi');
 	}
 }

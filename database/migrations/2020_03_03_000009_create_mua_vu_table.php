@@ -35,6 +35,6 @@ class CreateMuaVuTable extends Migration
 	 */
 	public function down()
 	{
-		Schema::dropIfExists('mua_vus');
+		Schema::dropIfExists('muavu');
 	}
 }

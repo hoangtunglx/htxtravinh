@@ -35,6 +35,6 @@ class CreateThanhToanTable extends Migration
 	 */
 	public function down()
 	{
-		Schema::dropIfExists('thanh_toans');
+		Schema::dropIfExists('thanhtoan');
 	}
 }

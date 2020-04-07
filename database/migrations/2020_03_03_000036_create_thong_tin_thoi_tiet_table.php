@@ -37,6 +37,6 @@ class CreateThongTinThoiTietTable extends Migration
 	 */
 	public function down()
 	{
-		Schema::dropIfExists('thong_tin_thoi_tiets');
+		Schema::dropIfExists('thongtinthoitiet');
 	}
 }

@@ -34,6 +34,6 @@ class CreateSoCanhTacTable extends Migration
 	 */
 	public function down()
 	{
-		Schema::dropIfExists('so_canh_tacs');
+		Schema::dropIfExists('socanhtac');
 	}
 }

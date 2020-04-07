@@ -34,6 +34,6 @@ class CreateLoaiPhanBonTable extends Migration
 	 */
 	public function down()
 	{
-		Schema::dropIfExists('loai_phan_bons');
+		Schema::dropIfExists('loaiphanbon');
 	}
 }
