@@ -11,5 +11,10 @@ use Illuminate\Database\Eloquent\Model;
 
 class HopTacXa extends Model
 {
-	//
+	protected $table = 'hoptacxa';
+	
+	public function VungNguyenLieu()
+	{
+		return $this->hasMany('App\VungNguyenLieu');
+	}
 }

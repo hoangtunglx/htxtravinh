@@ -13,6 +13,7 @@ use Illuminate\Notifications\Notifiable;
 
 class NguoiDung extends Authenticatable
 {
+	protected $table = 'nguoidung';
 	use Notifiable;
 	
 	protected $fillable = [
@@ -24,4 +25,8 @@ class NguoiDung extends Authenticatable
 	protected $casts = [
 		'email_verified_at' => 'datetime',
 	];
+	public function ThuaDat()
+	{
+		return $this->hasMany('App\ThuaDat');
+	}
 }
