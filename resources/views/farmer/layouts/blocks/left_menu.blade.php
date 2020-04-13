@@ -34,15 +34,22 @@
 						<a href="{{ route('farmer.giong.index') }}" class="menu-link"><span class="menu-icon fa fa-leaf"></span> <span class="menu-text">TT thị trường</span> </a>
 					</li>
 					<li class="menu-item">
-						<a href="{{ route('farmer.loaigiong.index') }}" class="menu-link"><span class="menu-icon far fa-leaf"></span> <span class="menu-text">TT môi trường</span> </a>
+						<a href="{{ route('farmer.thongtinmoitruong.moitruong_thuadat') }}" class="menu-link"><span class="menu-icon far fa-leaf"></span> <span class="menu-text">TT môi trường</span> </a>
+					</li>
+					<li class="menu-item">
+						<a href="{{ route('farmer.thongtinthoitiet.index') }}" class="menu-link"><span class="menu-icon far fa-leaf"></span> <span class="menu-text">TT thời tiết</span> </a>
+					</li>
+					<li class="menu-item">
+						<a href="{{ route('farmer.goiyphanbonnuoctuoi.index') }}" class="menu-link"><span class="menu-icon far fa-leaf"></span> <span class="menu-text">Gợi ý PB-NT</span> </a>
+					</li>
+					<li class="menu-item">
+						<a href="{{ route('farmer.saubenh.index') }}" class="menu-link"><span class="menu-icon fa fa-leaf"></span> <span class="menu-text"> Sâu bệnh</span> </a>
+					</li>
+					<li class="menu-item">
+						<a href="{{ route('farmer.dubaosaubenh.index') }}" class="menu-link"><span class="menu-icon fa fa-leaf"></span> <span class="menu-text">Dự báo sâu bệnh</span> </a>
 					</li>
 					
-					<li class="menu-item">
-						<a href="{{ route('farmer.giong.index') }}" class="menu-link"><span class="menu-icon fa fa-leaf"></span> <span class="menu-text">Dự báo sâu bệnh</span> </a>
-					</li>
-					<li class="menu-item">
-						<a href="{{ route('farmer.loaigiong.index') }}" class="menu-link"><span class="menu-icon far fa-leaf"></span> <span class="menu-text">TT thời tiết</span> </a>
-					</li>
+					
 
 				</ul>
 			</li>

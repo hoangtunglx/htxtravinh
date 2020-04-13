@@ -24,8 +24,8 @@ class CreateDuBaoSauBenhTable extends Migration
 			$table->foreignId('vungnguyenlieu_id')->constrained()->on('vungnguyenlieu');
 			$table->foreignId('muavu_id')->constrained()->on('muavu');
 			$table->foreignId('nguoidung_id')->constrained()->on('nguoidung');
-			$table->string('thongtindubao', 191);
-			$table->string('ghichu', 191)->nullable();
+			$table->string('thongtindubao');
+			$table->string('ghichu')->nullable();
 			$table->timestamp('created_at')->default(DB::raw('CURRENT_TIMESTAMP'));
 			$table->timestamp('updated_at')->default(DB::raw('CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP'));
 		});

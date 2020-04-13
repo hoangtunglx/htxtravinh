@@ -92,7 +92,7 @@ Route::prefix('farmer')->name('farmer.')->group(function () {
 	});
 /* Thông tin môi trường */
 		Route::prefix('thong-tin-moi-truong')->name('thongtinmoitruong.')->group(function () {
-		Route::get('', 'ThongTinMoiTruongController@getThongtinmoitruong_thuadatFarmer');
+		Route::get('', 'ThongTinMoiTruongController@getThongtinmoitruong_thuadatFarmer')->name('moitruong_thuadat');
 		Route::get('index/{id}', 'ThongTinMoiTruongController@getIndexFarmer')->name('index');
 		});
 	
@@ -429,12 +429,12 @@ Route::prefix('admin')->name('admin.')->group(function () {
 /* dự báo sâu bệnh */
 
 		Route::prefix('du-bao-sau-benh')->name('dubaosaubenh.')->group(function () {
-		Route::get('', 'DuBaoSauBenhController@getIndexOfficer')->name('index');
-		Route::get('create', 'DuBaoSauBenhController@getCreateOfficer')->name('create');
-		Route::post('store', 'DuBaoSauBenhController@postCreateOfficer')->name('store');
-		Route::get('edit/{id}', 'DuBaoSauBenhController@getEditOfficer')->name('edit');
-		Route::put('update', 'DuBaoSauBenhController@postEditOfficer')->name('update');
-		Route::delete('delete/{id}', 'DuBaoSauBenhController@postDeleteOfficer')->name('delete');
+		Route::get('', 'DuBaoSauBenhController@getIndexAdmin')->name('index');
+		Route::get('create', 'DuBaoSauBenhController@getCreateAdmin')->name('create');
+		Route::post('store', 'DuBaoSauBenhController@postCreateAdmin')->name('store');
+		Route::get('edit/{id}', 'DuBaoSauBenhController@getEditAdmin')->name('edit');
+		Route::put('update', 'DuBaoSauBenhController@postEditAdmin')->name('update');
+		Route::delete('delete/{id}', 'DuBaoSauBenhController@postDeleteAdmin')->name('delete');
 
 });
 		/* Sau Benh */
@@ -449,7 +449,7 @@ Route::prefix('admin')->name('admin.')->group(function () {
 		/*Thông tin moi trường */
 
 		Route::prefix('thong-tin-moi-truong')->name('thongtinmoitruong.')->group(function () {
-		Route::get('', 'ThongTinMoiTruongController@getThongtinmoitruong_thuadatAdmin');
+		Route::get('', 'ThongTinMoiTruongController@getThongtinmoitruong_thuadatAdmin')->name('moitruong_thuadat');
 		Route::get('index/{id}', 'ThongTinMoiTruongController@getIndexAdmin')->name('index');
 		Route::get('create/{id}', 'ThongTinMoiTruongController@getCreateAdmin')->name('create');
 		Route::post('store', 'ThongTinMoiTruongController@postCreateAdmin')->name('store');

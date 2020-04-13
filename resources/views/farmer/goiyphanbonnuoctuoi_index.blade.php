@@ -1,5 +1,5 @@
 
-@extends('farmer.layouts.master')
+@extends('manager.layouts.master')
 
 @section('content')
 
@@ -26,13 +26,13 @@
           <thead>
             <tr>
 
-              <th class="text-center"> # </th>
-              <th> Thông tin thời tiết </th>
-			  <th> Thông tin môi trường </th>
-              <th> Tiêu để </th>
-              <th> Nội dung gợi ý </th>
-              <th> Thời gian </th>
-              <th> Người gợi ý </th>
+             <th class="text-center"> # </th>
+              <th width="17%" >Thông tin môi trường</th>
+              <th width="15%">Thông tin thời tiết </th>
+              <th width="20%"> Nội dung gợi ý </th>
+               <th width="20%" > ghi chú </th>
+              <th width="18%"> Thời gian </th>
+              <th width="10%>"> Người gợi ý </th>
               
               <th style="width:100px; min-width:100px;"> &nbsp; </th>
             </tr>
@@ -41,12 +41,15 @@
               @foreach($dsGoiYPhanBonNuocTuoi ?? [] as $goiYPhanBonNuocTuoi)
             <tr>
               <td class="text-center"> {{ $loop->iteration }} </td>
-              <td> {{ $goiYPhanBonNuocTuoi->thongtinmoitruong_id}} </td>
-			 <td> {{ $goiYPhanBonNuocTuoi->thongtinthoitiet_id}} </td>
-              <td> {{ $goiYPhanBonNuocTuoi->tieude}} </td>
-               <td> {{ $goiYPhanBonNuocTuoi->thongtingoiy}} </td>
+              <td>
+                Độ mặn: {{$goiYPhanBonNuocTuoi->ThongTinMoiTruong->doman}}%<br>
+                Độ PH: {{$goiYPhanBonNuocTuoi->ThongTinMoiTruong->doph}}%<br>
+                Độ ẩm đất: {{$goiYPhanBonNuocTuoi->ThongTinMoiTruong->doph}}% </td>
+             <td>Lượng mưa: {{ $goiYPhanBonNuocTuoi->ThongTinThoiTiet->luongmua}}ml </td>
+             <td> {{ $goiYPhanBonNuocTuoi->thongtingoiy}} </td>
+             <td> {{ $goiYPhanBonNuocTuoi->ghichu}} </td>
              <td>{{ Carbon\Carbon::createFromFormat('Y-m-d H:i:s', $goiYPhanBonNuocTuoi->created_at)->format('d/m/Y H:i:s') }}</td>
-              <td> {{ $goiYPhanBonNuocTuoi->nguoidung_id}} </td>
+              <td> {{$goiYPhanBonNuocTuoi->NguoiDung->name}} </td>
               
             </tr>
             @endforeach

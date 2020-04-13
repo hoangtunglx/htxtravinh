@@ -37,7 +37,7 @@
                                 <div class="card">
                                     <div class="card-body">
                                         <h3 class="card-title">Thửa đất {{$thuaDat->tenthuadat}}</h3>
-                                         <p class="card-text">Diện tích {{$thuaDat->dientich}}</p>
+                                         <p class="card-text">Diện tích {{$thuaDat->dientich}}m²</p>
                                           <p class="card-text">Tờ bản đồ {{$thuaDat->tobando}}</p>
                                         <a href="{{ route('manager.thongtinmoitruong.index', ['id'=>$thuaDat->id])}} "class=" btn btn-primary">TT môi trường</a>
                                     </div>

@@ -15,11 +15,11 @@ class GoiYPhanBonNuocTuoi extends Model
 
 public function ThongTinMoiTruong()
 	{
-		return $this->belongsTo('App\ThongTinMoiTruong');
+		return $this->belongsTo('App\ThongTinMoiTruong','thongtinmoitruong_id','id');
 	}
 public function ThongTinThoiTiet()
 	{
-		return $this->belongsTo('App\ThongTinThoiTiet');
+		return $this->belongsTo('App\ThongTinThoiTiet','thongtinthoitiet_id','id');
 	}
 
 	public function NguoiDung()

@@ -12,7 +12,7 @@
         </li>
       </ol>
     </nav>
-    <a href=" {{ route('farmer.dubaosaubenh.create') }} "> <button type="button" class="btn btn-success btn-floated"><span class="fa fa-plus"></span></button> </a>
+    
     <div class="d-md-flex align-items-md-start">
       <h1 class="page-title mr-sm-auto"> Dự báo sâu bệnh </h1>
       <div id="dt-buttons" class="btn-toolbar"></div>
@@ -27,13 +27,15 @@
             <tr>
 
               <th class="text-center"> # </th>
-              <th> Tên sâu bệnh </th>
-              <th> Vùng sâu bệnh </th>
-              <th> Mùa vụ </th>
-              <th> Thông tin dự báo </th>
-              <th> Ghi chú </th>
-			 <th> Người dự báo </th>
-             
+              <th width="10%"> sâu bệnh </th>
+              <th width="10%"> Vùng nguyên liệu </th>
+              <th width="10%"> Mùa vụ </th>
+              <th width="25%"> Thông tin dự báo </th>
+              <th width="25%"> Ghi chú </th>
+             <th width="10%"> Người dự báo </th>
+              <th width="10%"> thời gian </th>
+
+
               <th style="width:100px; min-width:100px;"> &nbsp; </th>
             </tr>
           </thead>
@@ -41,12 +43,15 @@
               @foreach($dsDuBaoSauBenh   as $duBaoSauBenh)
             <tr>
               <td class="text-center"> {{ $loop->iteration }} </td>
-              <td> {{ $duBaoSauBenh->saubenh_id}} </td>
-			<td> {{ $duBaoSauBenh->vungnguyenlieu_id }} </td>
-              <td> {{ $duBaoSauBenh->muavu_id }} </td>
+              <td>{{ $duBaoSauBenh->SauBenh->tensaubenh}} </td>
+             <td> {{ $duBaoSauBenh->VungNguyenLieu->tenvungnguyenlieu }} </td>
+              <td> {{ $duBaoSauBenh->MuaVu->tenmuavu }} </td>
               <td> {{ $duBaoSauBenh->thongtindubao}} </td>
               <td> {{ $duBaoSauBenh->ghichu }} </td>
-              <td> ll </td>
+              <td> {{$duBaoSauBenh->NguoiDung->name}} </td>
+              <td>{{ Carbon\Carbon::createFromFormat('Y-m-d H:i:s',
+
+                            $duBaoSauBenh->created_at)->format('d/m/Y H:i:s') }}</td>
           
             </tr>
             @endforeach

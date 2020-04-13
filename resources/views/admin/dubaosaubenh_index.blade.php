@@ -27,12 +27,14 @@
             <tr>
 
               <th class="text-center"> # </th>
-              <th> Tên sâu bệnh </th>
-              <th> Vùng sâu bệnh </th>
-              <th> Mùa vụ </th>
-              <th> Thông tin dự báo </th>
-              <th> Ghi chú </th>
-			       <th> Người dự báo </th>
+              <th width="10%"> sâu bệnh </th>
+              <th width="10%"> Vùng nguyên liệu </th>
+              <th width="10%"> Mùa vụ </th>
+              <th width="25%"> Thông tin dự báo </th>
+              <th width="25%"> Ghi chú </th>
+			       <th width="10%"> Người dự báo </th>
+              <th width="10%"> thời gian </th>
+
 
               <th style="width:100px; min-width:100px;"> &nbsp; </th>
             </tr>
@@ -47,6 +49,9 @@
               <td> {{ $duBaoSauBenh->thongtindubao}} </td>
               <td> {{ $duBaoSauBenh->ghichu }} </td>
               <td> {{$duBaoSauBenh->NguoiDung->name}} </td>
+              <td>{{ Carbon\Carbon::createFromFormat('Y-m-d H:i:s',
+
+                            $duBaoSauBenh->created_at)->format('d/m/Y H:i:s') }}</td>
               <td class="text-center">
                 <form action="{{route('admin.dubaosaubenh.delete', ['id'=>$duBaoSauBenh->id])}}" method="post">
                   @csrf()

@@ -21,6 +21,7 @@ class GoiYPhanBonNuocTuoiController extends Controller
 
 	public function getIndexAdmin()
 	{
+		
 		return view('admin.goiyphanbonnuoctuoi_index',['dsGoiYPhanBonNuocTuoi'=> self::getIndex()]);
 	}
 	public function getIndexManager()

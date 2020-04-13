@@ -22,9 +22,9 @@ class CreateGoiYPhanBonNuocTuoiTable extends Migration
 			$table->id();
 			$table->foreignId('thongtinmoitruong_id')->constrained()->on('thongtinmoitruong');
 			$table->foreignId('thongtinthoitiet_id')->constrained()->on('thongtinthoitiet');
-			$table->string('thongtingoiy', 191);
-			$table->string('nguoigoiy', 50);
-			$table->string('ghichu', 191)->nullable();
+			$table->foreignId('nguoidung_id')->constrained()->on('nguoidung');
+			$table->string('thongtingoiy');
+			$table->string('ghichu')->nullable();
 			$table->timestamp('created_at')->default(DB::raw('CURRENT_TIMESTAMP'));
 			$table->timestamp('updated_at')->default(DB::raw('CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP'));
 		});

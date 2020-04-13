@@ -32,7 +32,7 @@
               <th> Sức gió </th>
               <th> Hướng gió </th>
               <th> Ngày cập nhật </th>
-			  <th> Người cập nhật </th>
+			       <th> Người cập nhật </th>
               <th style="width:100px; min-width:100px;"> &nbsp; </th>
             </tr>
           </thead>
@@ -40,9 +40,9 @@
               @foreach($dsThongTinThoiTiet ?? [] as $thongTinThoiTiet)
             <tr>
 				<td class="text-center"> {{ $loop->iteration }} </td>
-				<td> {{ $thongTinThoiTiet->vungnguyenlieu_id}} </td>
-				<td> {{ $thongTinThoiTiet->luongmua }} </td>
-              <td> {{ $thongTinThoiTiet->sucgio }} </td>
+				<td> {{ $thongTinThoiTiet->VungNguyenLieu->tenvungnguyenlieu}} </td>
+				<td> {{ $thongTinThoiTiet->luongmua }}ml </td>
+              <td> {{ $thongTinThoiTiet->sucgio }}km/h </td>
               <td> {{ $thongTinThoiTiet->huonggio}} </td>
                 <td>{{ Carbon\Carbon::createFromFormat('Y-m-d H:i:s', $thongTinThoiTiet->created_at)->format('d/m/Y H:i:s') }}</td>
               <td>{{$thongTinThoiTiet->NguoiDung->name}} </td>

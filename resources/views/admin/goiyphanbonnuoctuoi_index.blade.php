@@ -14,7 +14,7 @@
     </nav>
     <a href=" {{ route('admin.goiyphanbonnuoctuoi.create') }} "> <button type="button" class="btn btn-success btn-floated"><span class="fa fa-plus"></span></button> </a>
     <div class="d-md-flex align-items-md-start">
-      <h1 class="page-title mr-sm-auto"> Phương tiện sản xuất </h1>
+      <h1 class="page-title mr-sm-auto"> Gợi ý phân bón nước tưới </h1>
       <div id="dt-buttons" class="btn-toolbar"></div>
     </div>
   </header>
@@ -27,12 +27,12 @@
             <tr>
 
               <th class="text-center"> # </th>
-              <th> id_Thông tin thời tiết </th>
-			        <th> id_Thông tin môi trường </th>
-              <th> Nội dung gợi ý </th>
-			         <th> ghi chú </th>
-              <th> Thời gian </th>
-              <th> Người gợi ý </th>
+              <th width="17%" >Thông tin môi trường</th>
+			        <th width="15%">Thông tin thời tiết </th>
+              <th width="20%"> Nội dung gợi ý </th>
+			         <th width="20%" > ghi chú </th>
+              <th width="18%"> Thời gian </th>
+              <th width="10%>"> Người gợi ý </th>
               
               <th style="width:100px; min-width:100px;"> &nbsp; </th>
             </tr>
@@ -41,8 +41,11 @@
               @foreach($dsGoiYPhanBonNuocTuoi ?? [] as $goiYPhanBonNuocTuoi)
             <tr>
               <td class="text-center"> {{ $loop->iteration }} </td>
-              <td> {{ $goiYPhanBonNuocTuoi->thongtinmoitruong_id}} </td>
-			        <td> {{ $goiYPhanBonNuocTuoi->thongtinthoitiet_id}} </td>
+              <td>
+                Độ mặn: {{$goiYPhanBonNuocTuoi->ThongTinMoiTruong->doman}}%<br>
+                Độ PH: {{$goiYPhanBonNuocTuoi->ThongTinMoiTruong->doph}}%<br>
+                Độ ẩm đất: {{$goiYPhanBonNuocTuoi->ThongTinMoiTruong->doph}}% </td>
+			       <td>Lượng mưa: {{ $goiYPhanBonNuocTuoi->ThongTinThoiTiet->luongmua}}ml </td>
              <td> {{ $goiYPhanBonNuocTuoi->thongtingoiy}} </td>
 			       <td> {{ $goiYPhanBonNuocTuoi->ghichu}} </td>
              <td>{{ Carbon\Carbon::createFromFormat('Y-m-d H:i:s', $goiYPhanBonNuocTuoi->created_at)->format('d/m/Y H:i:s') }}</td>

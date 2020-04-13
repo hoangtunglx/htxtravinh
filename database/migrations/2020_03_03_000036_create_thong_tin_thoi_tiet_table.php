@@ -20,7 +20,7 @@ class CreateThongTinThoiTietTable extends Migration
 	{
 		Schema::create('thongtinthoitiet', function (Blueprint $table) {
 			$table->id();
-			$table->foreignId('thuadat_id')->constrained()->on('thuadat');
+			$table->foreignId('vungnguyenlieu_id')->constrained()->on('vungnguyenlieu');
 			$table->foreignId('nguoidung_id')->constrained()->on('nguoidung');
 			$table->float('luongmua');
 			$table->float('sucgio');

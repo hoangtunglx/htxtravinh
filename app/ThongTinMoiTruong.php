@@ -15,7 +15,7 @@ class ThongTinMoiTruong extends Model
 
 	public function GoiYPhanBonNuocTuoi()
 	{
-		return $this->hasMany('App\GoiYPhanBonNuocTuoi');
+		return $this->hasMany('App\GoiYPhanBonNuocTuoi','thongtinmoitruong_id','id');
 	}
 
 	public function NguoiDung()

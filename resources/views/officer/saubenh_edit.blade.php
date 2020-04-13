@@ -29,7 +29,7 @@
           <fieldset>
 
 	
-            <div class="form-group">
+           <div class="form-group">
               <label for="tensaubenh">Tên sâu bệnh </label>
               <textarea class="form-control @error('tensaubenh') is-invalid @enderror" id="tensaubenh" name="tensaubenh" rows="3" placeholder="tên sâu bệnh" autofocus>{{old('tensaubenh', $sauBenh->tensaubenh)}}</textarea>
               @error('tensaubenh')  <div class="invalid-feedback"> <i class="fa fa-exclamation-circle fa-fw"></i> {{ $message }} </div>  @enderror
@@ -37,7 +37,7 @@
 
               <div class="form-group">
               <label for="dacdiem"> Đặc điểm </label>
-              <textarea class="form-control @error('dacdiem') is-invalid @enderror" id="dacdiem" name="dacdiem" rows="3" placeholder="Đặc điểm" autofocus>{{old('tensaubenh', $sauBenh->dacdiem)}}</textarea>
+              <textarea class="form-control @error('dacdiem') is-invalid @enderror" id="dacdiem" name="dacdiem" rows="3" placeholder="Đặc điểm" autofocus>{{old('dacdiem', $sauBenh->dacdiem)}}</textarea>
               @error('dacdiem')  <div class="invalid-feedback"> <i class="fa fa-exclamation-circle fa-fw"></i> {{ $message }} </div>  @enderror
             </div>
 
@@ -49,13 +49,13 @@
 
             <div class="form-group">
               <label for="dauhieu"> Dấu hiệu </label>
-              <textarea class="form-control @error('dauhieu') is-invalid @enderror" id="dauhieu" name="caytrongtancong" rows="3" placeholder="Dấu hiệu" autofocus>{{old('dauhieu', $sauBenh->dauhieu)}}</textarea>
+              <textarea class="form-control @error('dauhieu') is-invalid @enderror" id="dauhieu" name="dauhieu" rows="3" placeholder="Dấu hiệu" autofocus>{{old('dauhieu', $sauBenh->dauhieu)}}</textarea>
               @error('dauhieu')  <div class="invalid-feedback"> <i class="fa fa-exclamation-circle fa-fw"></i> {{ $message }} </div>  @enderror
             </div>
 
             <div class="form-group">
               <label for="bienphapphongtranh"> Biện pháp phòng tránh </label>
-              <textarea class="form-control @error('caytrongtancong') is-invalid @enderror" id="bienphapphongtranh" name="bienphapphongtranh" rows="3" placeholder="Biện pháp phòng tránh" autofocus>{{old('bienphapphongtranh', $sauBenh->bienphapphongtranh)}}</textarea>
+              <textarea class="form-control @error('bienphapphongtranh') is-invalid @enderror" id="bienphapphongtranh" name="bienphapphongtranh" rows="3" placeholder="Biện pháp phòng tránh" autofocus>{{old('bienphapphongtranh', $sauBenh->bienphapphongtranh)}}</textarea>
               @error('bienphapphongtranh')  <div class="invalid-feedback"> <i class="fa fa-exclamation-circle fa-fw"></i> {{ $message }} </div>  @enderror
             </div>
 

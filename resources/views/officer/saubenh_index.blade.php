@@ -27,12 +27,12 @@
             <tr>
 
               <th class="text-center"> # </th>
-              <th> Tên sâu bệnh </th>
-              <th> Đặc điểm </th>
-              <th> Cây trồng tấn công </th>
-              <th> Dấu hiệu </th>
-              <th> Biện pháp phòng tránh </th>
-              <th> Ghi chú </th>
+              <th width="15%" > Tên sâu bệnh </th>
+              <th width="10%"> Đặc điểm </th>
+              <th width="15%" > Cây trồng tấn công </th>
+              <th width="20%" > Dấu hiệu </th>
+              <th width="20%"> Biện pháp phòng tránh </th>
+              <th width="20%"> Ghi chú </th>
               <th style="width:100px; min-width:100px;"> &nbsp; </th>
             </tr>
           </thead>

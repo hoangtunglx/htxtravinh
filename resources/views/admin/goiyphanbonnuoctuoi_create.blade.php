@@ -27,11 +27,11 @@
           <fieldset>
 
             <div class="form-group">
-					<label for="thongtinmoitruong_id">Thông tin gợi ý<span class="text-danger font-weight-bold">*</span></label>
+					<label for="thongtinmoitruong_id">Thông tin môi trường<span class="text-danger font-weight-bold">*</span></label>
 					<select id="thongtinmoitruong_id" class="form-control custom-select @error('thongtinmoitruong_id') is-invalid @enderror" name="thongtinmoitruong_id" required autofocus>
 						<option value="">-- Choose --</option>
 						@foreach($dsThongTinMoiTruong as $thongTinMoiTruong)
-							<option value="{{ $thongTinMoiTruong->id }}">{{ $thongTinMoiTruong->id }}</option>
+							<option value="{{ $thongTinMoiTruong->id }}">Độ mặn:{{$thongTinMoiTruong->doman}}% - Độ PH: {{$thongTinMoiTruong->doph}}% - Độ ẩm đất: {{$thongTinMoiTruong->doamdat}}%</option>
 						@endforeach
 					</select>
 					@error('thongtinmoitruong_id')
@@ -44,7 +44,7 @@
 					<select id="thongtinthoitiet_id" class="form-control custom-select @error('thongtinthoitiet_id') is-invalid @enderror" name="thongtinthoitiet_id" required autofocus>
 						<option value="">-- Choose --</option>
 						@foreach($dsThongTinThoiTiet as $thongTinThoiTiet)
-							<option value="{{ $thongTinThoiTiet->id }}">{{ $thongTinThoiTiet->id }}</option>
+							<option value="{{ $thongTinThoiTiet->id }}">Lượng mưa: {{ $thongTinThoiTiet->luongmua }}ml</option>
 						@endforeach
 					</select>
 					@error('thongtinthoitiet_id')
