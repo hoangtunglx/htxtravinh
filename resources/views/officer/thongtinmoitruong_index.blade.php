@@ -56,14 +56,10 @@
 
                             $moiTruong->created_at)->format('d/m/Y H:i:s') }}</td>
 
-
-
               <td class="text-center">
                
-                  
-                 
-                  <a href="{{ route('officer.thongtinmoitruong.edit', ['id' => $moiTruong->id]) }}" class="btn btn-warning btn-sm btn-icon" title="Chỉnh sửa"><i class="fa fa-pencil-alt"></i></a>
-                  <a href="{{route('officer.thongtinmoitruong.delete', ['id'=>$moiTruong->id])}}" type="submit" class="btn btn-danger btn-delete btn-sm btn-icon" title="Xóa"> <i class="fa fa-trash"></i></button>
+                          <a href="{{ route('officer.thongtinmoitruong.edit', ['id' => $moiTruong->id]) }}" class="btn btn-warning btn-sm btn-icon" title="Chỉnh sửa"><i class="fa fa-pencil-alt"></i></a>
+                          <a href="{{route('officer.thongtinmoitruong.delete', ['id'=>$moiTruong->id])}}" type="submit" class="btn btn-danger btn-delete btn-sm btn-icon" title="Xóa"> <i class="fa fa-trash"></i></button>
               
               </td>
             </tr>

@@ -39,29 +39,23 @@
 					@enderror
 				</div>
 
-
-
-
-			<div class="form-group">
+			   <div class="form-group">
               <label for="luongmua">Lượng mưa<abbr title="Required">*</abbr></label>
               <input type="text" class="form-control @error('luongmua') is-invalid @enderror" id="luongmua" name="luongmua" value="{{old('luongmua')}}" placeholder="Tên sâu bệnh" autofocus>
               @error('tên sâu bệnh')  <div class="invalid-feedback"> <i class="fa fa-exclamation-circle fa-fw"></i> {{ $message }} </div>  @enderror
-            </div>
+        </div>
 
-			<div class="form-group">
+			   <div class="form-group">
               <label for="sucgio">Sức gió <abbr title="Required">*</abbr></label>
               <input type="text" class="form-control @error('sucgio') is-invalid @enderror" id="sucgio" name="sucgio" value="{{old('sucgio')}}" placeholder="Sức gió" autofocus>
               @error('sucgio')  <div class="invalid-feedback"> <i class="fa fa-exclamation-circle fa-fw"></i> {{ $message }} </div>  @enderror
-            </div>
+         </div>
 
-			<div class="form-group">
+			   <div class="form-group">
               <label for="huonggio">Hướng gió <abbr title="Required">*</abbr></label>
               <input type="text" class="form-control @error('huonggio') is-invalid @enderror" id="huonggio" name="huonggio" value="{{old('huonggio')}}" placeholder="Sức gió" autofocus>
               @error('huonggio')  <div class="invalid-feedback"> <i class="fa fa-exclamation-circle fa-fw"></i> {{ $message }} </div>  @enderror
-            </div>
-
-
-
+         </div>
 
             <div class="text-center">
               <button class="btn btn-primary" type="submit"> <i class="fa fa-save"></i> Lưu </button>

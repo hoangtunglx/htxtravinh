@@ -47,7 +47,9 @@ class GoiYPhanBonNuocTuoiController extends Controller
 	}
 public function getCreateOfficer()
 	{
-		return view('officer.goiyphanbonnuoctuoi_create');
+		$dsThongTinMoiTruong=ThongTinMoiTruong::all();
+		$dsThongTinThoiTiet = ThongTinThoiTiet::all();
+		return view('admin.goiyphanbonnuoctuoi_create',['dsThongTinMoiTruong' => $dsThongTinMoiTruong,'dsThongTinThoiTiet'=>$dsThongTinThoiTiet]);
 	}
 
 
@@ -94,7 +96,9 @@ public function getCreateOfficer()
 		}
 		public function getEditOfficer($id)
 		{
-			return view('officer.goiyphanbonnuoctuoi_edit', ['goiYPhanBonNuocTuoi' => GoiYPhanBonNuocTuoi::findOrFail($id)]);
+			$dsThongTinMoiTruong=ThongTinMoiTruong::all();
+			$dsThongTinThoiTiet = ThongTinThoiTiet::all();
+			return view('admin.goiyphanbonnuoctuoi_edit', ['goiYPhanBonNuocTuoi' => GoiYPhanBonNuocTuoi::findOrFail($id),'dsThongTinMoiTruong' => $dsThongTinMoiTruong,'dsThongTinThoiTiet'=>$dsThongTinThoiTiet]);
 		}
 
 

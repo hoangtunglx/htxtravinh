@@ -26,15 +26,7 @@
           @csrf()
           @method('PUT')
           <input type="hidden" name="thongtinthoitietid" value=" {{ $thongTinThoiTiet->id }} ">
-         
-
-         
-
           <fieldset>
-
-		
-		    	
-       
 					<div class="form-group">
 					<label for="vungnguyenlieu_id"> Vùng nguyên liệu <span class="text-danger font-weight-bold">*</span></label>
 					
@@ -64,15 +56,6 @@
               <input type="text" class="form-control @error('huonggio') is-invalid @enderror" id="huonggio" name="huonggio" value="{{old('huonggio',  $thongTinThoiTiet->huonggio)}}" placeholder="Độ ẩm không khí" autofocus>
               @error('doamkhongkhi')  <div class="invalid-feedback"> <i class="fa fa-exclamation-circle fa-fw"></i> {{ $message }} </div>  @enderror
             </div>
-
-         
-        
-
-            
-
-         
-
-
 
             <div class="text-center">
               <button class="btn btn-primary" type="submit"> <i class="fa fa-save"></i> Lưu </button>

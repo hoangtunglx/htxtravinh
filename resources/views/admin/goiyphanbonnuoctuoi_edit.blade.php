@@ -74,9 +74,6 @@
               @error('ghichu')  <div class="invalid-feedback"> <i class="fa fa-exclamation-circle fa-fw"></i> {{ $message }} </div>  @enderror
             </div>
 
-
-
-
             <div class="text-center">
               <button class="btn btn-primary" type="submit"> <i class="fa fa-save"></i> Lưu </button>
             </div>

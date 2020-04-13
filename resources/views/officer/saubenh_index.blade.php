@@ -51,7 +51,7 @@
                   @csrf()
                   @method('DELETE')
                   <a href="{{ route('officer.saubenh.edit', ['id' => $sauBenh->id]) }}" class="btn btn-warning btn-sm btn-icon" title="Chỉnh sửa"><i class="fa fa-pencil-alt"></i></a>
-<button type="submit" class="btn btn-danger btn-delete btn-sm btn-icon" title="Xóa"> <i class="fa fa-trash"></i></button>
+                <button type="submit" class="btn btn-danger btn-delete btn-sm btn-icon" title="Xóa"> <i class="fa fa-trash"></i></button>
                 </form>
               </td>
             </tr>

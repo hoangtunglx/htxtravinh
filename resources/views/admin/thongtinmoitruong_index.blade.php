@@ -57,8 +57,6 @@
 
                             $moiTruong->created_at)->format('d/m/Y H:i:s') }}</td>
 
-
-
               <td class="text-center">
                 <!-- <form action="{{route('admin.thongtinmoitruong.delete', ['id'=>$moiTruong->id])}}" method="post"> -->
                   <!-- @csrf() -->

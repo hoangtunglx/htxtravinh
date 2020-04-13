@@ -92,8 +92,8 @@ class ThongTinMoiTruongController extends Controller
 		$dsThongTinMoiTruong =DB::table("thuadat")
 		->where('thuadat.id', '=', $id)
 		->join("thongtinmoitruong","thuadat.id","=","thongtinmoitruong.thuadat_id")
+		->join("nguoidung","nguoidung.id","=","thongtinmoitruong.nguoidung_id")
 		->select(DB::raw("thongtinmoitruong.*,thuadat.tenthuadat,nguoidung.name"))
-		->select(DB::raw("thongtinmoitruong.*,thuadat.tenthuadat"))
 		->get();
 		$id=$dsThuaDat->id;
 
@@ -132,6 +132,13 @@ class ThongTinMoiTruongController extends Controller
 
 
 	public function getCreateAdmin($id)
+	{
+		$dsThuaDat = ThuaDat::find($id);
+
+		return view('admin.thongtinmoitruong_create',['dsThuaDat'=>$dsThuaDat]);
+	}
+
+		public function getCreateOfficer ($id)
 	{
 		$dsThuaDat = ThuaDat::find($id);
 
@@ -178,7 +185,7 @@ class ThongTinMoiTruongController extends Controller
 	public function postCreateOfficer(ThongTinMoiTruongRequest $request)
 	{
 		$results = self::postCreate($request);
-//	return redirect('admin/thong-tin-moi-truong/index/'.$request->thuadat_id);
+	//	return redirect('admin/thong-tin-moi-truong/index/'.$request->thuadat_id);
 	//return $results['result'] ? redirect()->route('admin.thongtinmoitruong.index/'.$request->thuadat_id)->with($results) : redirect()->back()->withInput()->with($results);
 	return $results['result'] ? redirect('officer/thong-tin-moi-truong/index/'.$request->thuadat_id)->with($results) : redirect()->back()->withInput()->with($results);
 	}

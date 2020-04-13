@@ -53,11 +53,6 @@
 				</div>
 	
 
-
-
-
-			
-
 			<div class="form-group">
               <label for="thongtingoiy">Thông tin gợi ý </label>
               <textarea class="form-control @error('thongtingoiy') is-invalid @enderror" id="thongtingoiy" name="thongtingoiy" rows="10" placeholder="thông tin gợi ý" autofocus>{{old('thongtingoiy')}}</textarea>
@@ -69,10 +64,6 @@
               <textarea class="form-control @error('ghichu') is-invalid @enderror" id="ghichu" name="ghichu" rows="10" placeholder="ghi chú" autofocus>{{old('ghichu')}}</textarea>
               @error('ghichu')  <div class="invalid-feedback"> <i class="fa fa-exclamation-circle fa-fw"></i> {{ $message }} </div>  @enderror
             </div>
-
-			
-		
-
 
             <div class="text-center">
               <button class="btn btn-primary" type="submit"> <i class="fa fa-save"></i> Lưu </button>

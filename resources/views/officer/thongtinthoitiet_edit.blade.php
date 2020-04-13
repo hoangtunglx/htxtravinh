@@ -47,21 +47,18 @@
               <input type="text" class="form-control @error('luongmua') is-invalid @enderror" id="luongmua" name="luongmua" value="{{old('luongmua',  $thongTinThoiTiet->luongmua)}}" placeholder="Lượng mưa" autofocus>
               @error('luongmua')  <div class="invalid-feedback"> <i class="fa fa-exclamation-circle fa-fw"></i> {{ $message }} </div>  @enderror
             </div>
-        <div class="form-group">
+            
+             <div class="form-group">
               <label for="sucgio">Sức gió <abbr title="Required">*</abbr></label>
               <input type="text" class="form-control @error('sucgio') is-invalid @enderror" id="sucgio" name="sucgio" value="{{old('doamkhongkhi',  $thongTinThoiTiet->sucgio)}}" placeholder="Sức gió" autofocus>
               @error('sucgio')  <div class="invalid-feedback"> <i class="fa fa-exclamation-circle fa-fw"></i> {{ $message }} </div>  @enderror
             </div>
-        <div class="form-group">
+          
+           <div class="form-group">
               <label for="huonggio">Hướng gió <abbr title="Required">*</abbr></label>
               <input type="text" class="form-control @error('huonggio') is-invalid @enderror" id="huonggio" name="huonggio" value="{{old('huonggio',  $thongTinThoiTiet->huonggio)}}" placeholder="Độ ẩm không khí" autofocus>
               @error('doamkhongkhi')  <div class="invalid-feedback"> <i class="fa fa-exclamation-circle fa-fw"></i> {{ $message }} </div>  @enderror
             </div>
-
-		    
-			
-			
-
             <div class="text-center">
               <button class="btn btn-primary" type="submit"> <i class="fa fa-save"></i> Lưu </button>
             </div>

@@ -39,13 +39,13 @@
           <tbody>
               @foreach($dsThongTinThoiTiet ?? [] as $thongTinThoiTiet)
             <tr>
-				<td class="text-center"> {{ $loop->iteration }} </td>
-				<td> {{ $thongTinThoiTiet->VungNguyenLieu->tenvungnguyenlieu}} </td>
-				<td> {{ $thongTinThoiTiet->luongmua }}ml </td>
-              <td> {{ $thongTinThoiTiet->sucgio }}km/h </td>
-              <td> {{ $thongTinThoiTiet->huonggio}} </td>
-                <td>{{ Carbon\Carbon::createFromFormat('Y-m-d H:i:s', $thongTinThoiTiet->created_at)->format('d/m/Y H:i:s') }}</td>
-              <td> {{$thongTinThoiTiet->NguoiDung->name}} </td>
+            				<td class="text-center"> {{ $loop->iteration }} </td>
+            				<td> {{ $thongTinThoiTiet->VungNguyenLieu->tenvungnguyenlieu}} </td>
+            				<td> {{ $thongTinThoiTiet->luongmua }}ml </td>
+                    <td> {{ $thongTinThoiTiet->sucgio }}km/h </td>
+                    <td> {{ $thongTinThoiTiet->huonggio}} </td>
+                    <td>{{ Carbon\Carbon::createFromFormat('Y-m-d H:i:s', $thongTinThoiTiet->created_at)->format('d/m/Y H:i:s') }}</td>
+                    <td> {{$thongTinThoiTiet->NguoiDung->name}} </td>
               <td class="text-center">
                 <form action="{{route('officer.thongtinthoitiet.delete', ['id'=>$thongTinThoiTiet->id])}}" method="post">
                   @csrf()

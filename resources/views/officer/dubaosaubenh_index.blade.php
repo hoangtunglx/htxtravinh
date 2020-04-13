@@ -51,13 +51,13 @@
               <td> {{$duBaoSauBenh->NguoiDung->name}} </td>
               <td>{{ Carbon\Carbon::createFromFormat('Y-m-d H:i:s',
 
-                            $duBaoSauBenh->created_at)->format('d/m/Y H:i:s') }}</td>
+                    $duBaoSauBenh->created_at)->format('d/m/Y H:i:s') }}</td>
               <td class="text-center">
                 <form action="{{route('officer.dubaosaubenh.delete', ['id'=>$duBaoSauBenh->id])}}" method="post">
                   @csrf()
                   @method('DELETE')
                   <a href="{{ route('officer.dubaosaubenh.edit', ['id' => $duBaoSauBenh->id]) }}" class="btn btn-warning btn-sm btn-icon" title="Chỉnh sửa"><i class="fa fa-pencil-alt"></i></a>
-<button type="submit" class="btn btn-danger btn-delete btn-sm btn-icon" title="Xóa"> <i class="fa fa-trash"></i></button>
+                <button type="submit" class="btn btn-danger btn-delete btn-sm btn-icon" title="Xóa"> <i class="fa fa-trash"></i></button>
                 </form>
               </td>
             </tr>
