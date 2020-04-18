@@ -17,10 +17,10 @@
 					</li>
 					
 					<li class="menu-item">
-						<a href="{{ route('officer.giong.index') }}" class="menu-link"><span class="menu-icon fa fa-leaf"></span> <span class="menu-text">Công nợ</span> </a>
+						<a href="{{ route('officer.congno.index') }}" class="menu-link"><span class="menu-icon fa fa-leaf"></span> <span class="menu-text">Công nợ</span> </a>
 					</li>
 					<li class="menu-item">
-						<a href="{{ route('officer.loaigiong.index') }}" class="menu-link"><span class="menu-icon far fa-leaf"></span> <span class="menu-text">Thanh toán</span> </a>
+						<a href="{{ route('officer.thanhtoan.index') }}" class="menu-link"><span class="menu-icon far fa-leaf"></span> <span class="menu-text">Thanh toán</span> </a>
 					</li>
 
 				</ul>
@@ -31,7 +31,7 @@
 				<ul class="menu">
 				
 					<li class="menu-item">
-						<a href="{{ route('officer.giong.index') }}" class="menu-link"><span class="menu-icon fa fa-leaf"></span> <span class="menu-text">TT thị trường</span> </a>
+						<a href="{{ route('officer.thongtinthitruong.index') }}" class="menu-link"><span class="menu-icon fa fa-leaf"></span> <span class="menu-text">TT thị trường</span> </a>
 					</li>
 					<li class="menu-item">
 						<a href="{{ route('officer.loaigiong.index') }}" class="menu-link"><span class="menu-icon far fa-leaf"></span> <span class="menu-text">TT môi trường</span> </a>
@@ -66,17 +66,17 @@
 					</li>
 
 					<li class="menu-item">
-						<a href="{{ route('officer.giong.index') }}" class="menu-link"><span class="menu-icon fa fa-leaf"></span> <span class="menu-text">Phương tiện</span> </a>
+						<a href="{{ route('officer.phuongtiensx.index') }}" class="menu-link"><span class="menu-icon fa fa-leaf"></span> <span class="menu-text">Phương tiện</span> </a>
 					</li>
 					<li class="menu-item">
-						<a href="{{ route('officer.loaigiong.index') }}" class="menu-link"><span class="menu-icon far fa-leaf"></span> <span class="menu-text">Loại phương tiện</span> </a>
+						<a href="{{ route('officer.loaiphuongtien.index') }}" class="menu-link"><span class="menu-icon far fa-leaf"></span> <span class="menu-text">Loại phương tiện</span> </a>
 					</li>
 
 					<li class="menu-item">
-						<a href="{{ route('officer.giong.index') }}" class="menu-link"><span class="menu-icon fa fa-leaf"></span> <span class="menu-text">Nông sản</span> </a>
+						<a href="{{ route('officer.nongsan.index') }}" class="menu-link"><span class="menu-icon fa fa-leaf"></span> <span class="menu-text">Nông sản</span> </a>
 					</li>
 					<li class="menu-item">
-						<a href="{{ route('officer.loaigiong.index') }}" class="menu-link"><span class="menu-icon far fa-leaf"></span> <span class="menu-text">Loại nông sản</span> </a>
+						<a href="{{ route('officer.loainongsan.index') }}" class="menu-link"><span class="menu-icon far fa-leaf"></span> <span class="menu-text">Loại nông sản</span> </a>
 					</li>
 
 					<li class="menu-item">

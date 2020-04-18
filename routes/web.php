@@ -102,7 +102,10 @@ Route::prefix('farmer')->name('farmer.')->group(function () {
 		Route::get('', 'ChinhSachNongNghiepController@getIndexFarmer')->name('index');
 	});
 
-	
+	/* Thanh Toán */
+	Route::prefix('thanh-toan')->name('thanhtoan.')->group(function () {
+		Route::get('', 'ThanhToanController@getIndexFarmer')->name('index');
+	});
 });
 
 // Officer - Cán bộ hợp tác xã
@@ -266,6 +269,16 @@ Route::prefix('officer')->name('officer.')->group(function () {
 		Route::delete('delete/{id}', 'ChinhSachNongNghiepController@postDeleteOfficer')->name('delete');
 	});
 
+	/* Thanh Toán */
+	Route::prefix('thanh-toan')->name('thanhtoan.')->group(function () {
+		Route::get('', 'ThanhToanController@getIndexOfficer')->name('index');
+		Route::get('create', 'ThanhToanController@getCreateOfficer')->name('create');
+		Route::post('store', 'ThanhToanController@postCreateOfficer')->name('store');
+		Route::get('edit/{id}', 'ThanhToanController@getEditOfficer')->name('edit');
+		Route::put('update', 'ThanhToanController@postEditOfficer')->name('update');
+		Route::delete('delete/{id}', 'ThanhToanController@postDeleteOfficer')->name('delete');
+	});
+
 });
 
 // Manager - Cán bộ quản lý hợp tác xã
@@ -345,6 +358,10 @@ Route::prefix('manager')->name('manager.')->group(function () {
 	/* Chính Sách Nông Nghiệp */
 	Route::prefix('chinh-sach-nong-nghiep')->name('chinhsachnongnghiep.')->group(function () {
 		Route::get('', 'ChinhSachNongNghiepController@getIndexManager')->name('index');
+	});
+	/* Thanh Toán */
+	Route::prefix('thanh-toan')->name('thanhtoan.')->group(function () {
+		Route::get('', 'ThanhToanController@getIndexManager')->name('index');
 	});
 
 });
@@ -485,11 +502,11 @@ Route::prefix('admin')->name('admin.')->group(function () {
 	/* Công nợ */
 	Route::prefix('cong-no')->name('congno.')->group(function () {
 		Route::get('', 'CongNoController@getIndexAdmin')->name('index');
-	//	Route::get('create', 'PhuongTienSXController@getCreateAdmin')->name('create');
-	//	Route::post('store', 'PhuongTienSXController@postCreateAdmin')->name('store');
-	//	Route::get('edit/{id}', 'PhuongTienSXController@getEditAdmin')->name('edit');
-	//	Route::put('update', 'PhuongTienSXController@postEditAdmin')->name('update');
-	//	Route::delete('delete/{id}', 'PhuongTienSXController@postDeleteAdmin')->name('delete');
+	//	Route::get('create', 'CongNoController@getCreateAdmin')->name('create');
+	//	Route::post('store', 'CongNoController@postCreateAdmin')->name('store');
+	//	Route::get('edit/{id}', 'CongNoController@getEditAdmin')->name('edit');
+	//	Route::put('update', 'CongNoController@postEditAdmin')->name('update');
+	//	Route::delete('delete/{id}', 'CongNoController@postDeleteAdmin')->name('delete');
 	});
 	/* Thông Tin Thị Trường */
 	Route::prefix('thong-tin-thi-truong')->name('thongtinthitruong.')->group(function () {
@@ -513,8 +530,19 @@ Route::prefix('admin')->name('admin.')->group(function () {
 		Route::get('xemFile/{file}', 'ChinhSachNongNghiepController@xemFile')->name('xemFile');
 	});
 
+	/* Thanh Toán */
+	Route::prefix('thanh-toan')->name('thanhtoan.')->group(function () {
+		Route::get('', 'ThanhToanController@getIndexAdmin')->name('index');
+	//	Route::get('create', 'ThanhToanController@getCreateAdmin')->name('create');
+	//	Route::post('store', 'ThanhToanController@postCreateAdmin')->name('store');
+	//	Route::get('edit/{id}', 'ThanhToanController@getEditAdmin')->name('edit');
+	//	Route::put('update', 'ThanhToanController@postEditAdmin')->name('update');
+	//	Route::delete('delete/{id}', 'ThanhToanController@postDeleteAdmin')->name('delete');
+	});
+
 });
 
 Auth::routes();
-
+Route::get('thi-truong', 'ThongTinThiTruongHomeController@index')->name('thitruong.');
 Route::get('/', 'HomeController@index')->name('home');
+
