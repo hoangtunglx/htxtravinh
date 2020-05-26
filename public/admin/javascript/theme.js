@@ -6,9 +6,7 @@ function _defineProperties(target, props) { for (var i = 0; i < props.length; i+
 
 function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _defineProperties(Constructor.prototype, protoProps); if (staticProps) _defineProperties(Constructor, staticProps); return Constructor; }
 
-var Theme =
-/*#__PURE__*/
-function () {
+var Theme = /*#__PURE__*/function () {
   function Theme() {
     var _this = this;
 
@@ -40,12 +38,14 @@ function () {
         800: '#222230',
         900: '#191927'
       },
-      white: '#ffffff' // list of supported skin
+      white: '#ffffff'
+    }; // list of supported skin
 
-    };
     this.skins = ['default', 'dark']; // current skin
 
-    this.skin = localStorage.getItem('skin') || 'default'; // get auto initialize variable
+    this.skin = localStorage.getItem('skin') || 'default'; // current aside menu mode
+
+    this.hasCompactMenu = JSON.parse(localStorage.getItem('hasCompactMenu')) || false; // get auto initialize variable
 
     this.autoInit = localStorage.getItem('autoInit') || true; // initialized
 
@@ -65,6 +65,7 @@ function () {
 
       this.tooltips();
       this.popovers();
+      this.nestedDropdown();
       this.inputClearable();
       this.inputGroup();
       this.inputNumber();
@@ -86,8 +87,9 @@ function () {
 
 
       this.asideBackdrop();
-      this.aside();
+      this.toggleAside();
       this.asideMenu();
+      this.handleAsideMenu();
       this.sidebar();
       this.pageExpander(); // handle theme components
       // =============================================================
@@ -161,12 +163,7 @@ function () {
     key: "placeholderShown",
     value: function placeholderShown() {
       $(document).on('focus blur keyup change', '.form-label-group > input', function () {
-        var _this2 = this;
-
         this.classList[this.value ? 'remove' : 'add']('placeholder-shown');
-        setTimeout(function () {
-          console.log(_this2.autofill);
-        }, 2000);
       }); // toggle .placeholder-shown onload
 
       $('.form-label-group > input').trigger('change');
@@ -228,6 +225,27 @@ function () {
     key: "popovers",
     value: function popovers() {
       $('[data-toggle="popover"]').popover();
+    }
+    /**
+     * Init nested dropdown
+     */
+
+  }, {
+    key: "nestedDropdown",
+    value: function nestedDropdown() {
+      $('.dropdown-menu [data-toggle="dropdown"]').on('click', function (e) {
+        e.preventDefault();
+        e.stopPropagation();
+        var $trigger = $(this);
+        var $dropdown = $trigger.parent();
+        var $dropdownMenu = $trigger.next(); // close all dropdown menu
+
+        $dropdown.siblings().find('.dropdown-menu').removeClass('show');
+        $dropdownMenu.toggleClass('show');
+        $trigger.parents('.nav-item').on('hidden.bs.dropdown', function () {
+          return $dropdownMenu.removeClass('show');
+        });
+      });
     }
     /**
      * Hide/show clearable button due to input value
@@ -509,7 +527,7 @@ function () {
   }, {
     key: "invertGrays",
     value: function invertGrays() {
-      var _this3 = this;
+      var _this2 = this;
 
       var self = this;
       var gray = this.getColors('gray'); // get gray colors in array that reserve it
@@ -517,7 +535,7 @@ function () {
       var reverseGray = this.objToArray(gray).reverse();
       var x = 0;
       $.each(gray, function (i, v) {
-        _this3.colors.gray[i] = reverseGray[x];
+        _this2.colors.gray[i] = reverseGray[x];
         x++;
       });
     } // Theme Layout
@@ -559,7 +577,7 @@ function () {
   }, {
     key: "showAside",
     value: function showAside() {
-      var _this4 = this;
+      var _this3 = this;
 
       // show aside-backdrop
       var backdrop = this.showAsideBackdrop(); // add .show class to aside
@@ -568,7 +586,7 @@ function () {
 
       $('[data-toggle="aside"]').addClass('active');
       backdrop.one('click', function () {
-        _this4.hideAside();
+        _this3.hideAside();
       });
     }
     /**
@@ -590,16 +608,28 @@ function () {
      */
 
   }, {
-    key: "aside",
-    value: function aside() {
-      var _this5 = this;
+    key: "toggleAside",
+    value: function toggleAside() {
+      var _this4 = this;
 
       var $trigger = $('[data-toggle="aside"]');
       $trigger.on('click', function () {
         var isShown = $('.app-aside').hasClass('show');
         $trigger.toggleClass('active', !isShown);
-        if (isShown) _this5.hideAside();else _this5.showAside();
+        if (isShown) _this4.hideAside();else _this4.showAside();
       });
+    }
+    /**
+     * Get the appropriate StackedMenu options
+     */
+
+  }, {
+    key: "getMenuOptions",
+    value: function getMenuOptions() {
+      return {
+        compact: this.hasCompactMenu,
+        hoverable: this.hasCompactMenu
+      };
     }
     /**
      * Handle aside menu
@@ -611,9 +641,13 @@ function () {
       var ps;
 
       if (window.StackedMenu && this.isExists('#stacked-menu')) {
-        this.asideMenu = new StackedMenu(); // update perfect scrollbar
+        // init stackedMenu
+        this.stackedMenu = new StackedMenu(this.getMenuOptions());
+        $('.app').toggleClass('has-compact-menu', this.hasCompactMenu); // watch aside
 
-        $(this.asideMenu.selector).on('menu:open menu:close', function () {
+        this.watchAside(); // update perfect scrollbar
+
+        $(this.stackedMenu.selector).on('menu:open menu:close', function () {
           // wait until translation done
           setTimeout(function () {
             if (window.PerfectScrollbar) {
@@ -628,6 +662,103 @@ function () {
           });
         }
       }
+    }
+    /**
+     * Collapse aside menu to compact mode
+     */
+
+  }, {
+    key: "collapseAsideMenu",
+    value: function collapseAsideMenu() {
+      if (typeof this.stackedMenu !== 'undefined') {
+        this.stackedMenu.compact(true).hoverable(true); // update aside mode
+
+        this.hasCompactMenu = true; // as well as localStorage data
+
+        localStorage.setItem('hasCompactMenu', true); // update flag class
+
+        $('.app').addClass('has-compact-menu');
+      } // watch aside
+
+
+      this.watchAside();
+    }
+    /**
+     * Expand aside menu to normal mode
+     */
+
+  }, {
+    key: "expandAsideMenu",
+    value: function expandAsideMenu() {
+      if (typeof this.stackedMenu !== 'undefined') {
+        this.stackedMenu.compact(false).hoverable(false); // update aside mode
+
+        this.hasCompactMenu = false; // as well as localStorage data
+
+        localStorage.setItem('hasCompactMenu', false); // update flag class
+
+        $('.app').removeClass('has-compact-menu');
+      } // watch aside
+
+
+      this.watchAside();
+    }
+    /**
+     * Toggle aside menu mode
+     */
+
+  }, {
+    key: "toggleAsideMenu",
+    value: function toggleAsideMenu() {
+      if (this.hasCompactMenu == true) {
+        this.expandAsideMenu();
+      } else {
+        this.collapseAsideMenu();
+      }
+    }
+    /**
+     *  Watch aside on toggle screen
+     */
+
+  }, {
+    key: "watchAside",
+    value: function watchAside() {
+      var $appWrapper = $('.app');
+
+      if (typeof this.stackedMenu !== 'undefined') {
+        if (!this.isToggleScreenUp() || $appWrapper.hasClass('has-fullwidth')) {
+          this.stackedMenu.compact(false).hoverable(false);
+          $appWrapper.removeClass('has-compact-menu');
+        } else {
+          this.stackedMenu.compact(this.hasCompactMenu).hoverable(this.hasCompactMenu);
+          $appWrapper.toggleClass('has-compact-menu', this.hasCompactMenu);
+        }
+      }
+    }
+    /**
+     * handle aside compact
+     */
+
+  }, {
+    key: "handleAsideMenu",
+    value: function handleAsideMenu() {
+      var _this5 = this;
+
+      $('body').on('click', '[data-toggle="aside-collapse"]', function (e) {
+        e.preventDefault();
+
+        _this5.collapseAsideMenu();
+      }).on('click', '[data-toggle="aside-expand"]', function (e) {
+        e.preventDefault();
+
+        _this5.expandAsideMenu();
+      }).on('click', '[data-toggle="aside-menu"]', function (e) {
+        e.preventDefault();
+
+        _this5.toggleAsideMenu();
+      }); // remove any preparation classes here
+
+      $('html').removeClass('preparing-compact-menu');
     }
     /**
      * Showing sidebar
@@ -942,9 +1073,9 @@ function () {
               color: isDarkSkin ? this.hexToRgba(colors.white, .08) : this.hexToRgba(colors.black, .1),
               zeroLineColor: isDarkSkin ? this.hexToRgba(colors.white, .08) : this.hexToRgba(colors.black, .1)
             }
-          } // Merge settings to Chart JS default options
+          }
+        }; // Merge settings to Chart JS default options
 
-        };
         $.extend(true, Chart.defaults, settings);
       }
     }
@@ -1184,7 +1315,7 @@ function () {
         // use fontawesome as default icon
         $.fn.selectpicker.Constructor.DEFAULTS.style = '';
         $.fn.selectpicker.Constructor.DEFAULTS.styleBase = 'custom-select';
-        $.fn.selectpicker.Constructor.DEFAULTS.iconBase = 'fa';
+        $.fn.selectpicker.Constructor.DEFAULTS.iconBase = 'mr-1 fa';
         $.fn.selectpicker.Constructor.DEFAULTS.tickIcon = 'fa-check font-size-sm mt-2';
         $('[data-toggle="selectpicker"]').each(function () {
           var selector = this; // initialize
@@ -1362,9 +1493,9 @@ function () {
             buttondown_class: 'btn btn-secondary',
             buttonup_class: 'btn btn-secondary',
             verticalupclass: '+',
-            verticaldownclass: '-' // Merge options
+            verticaldownclass: '-'
+          }; // Merge options
 
-          };
           $.extend(true, options, settings);
           $(selector).TouchSpin(options);
         });
@@ -1623,8 +1754,11 @@ function () {
       $(window).on('resize', function () {
         // force close aside on toggle screen up
         if (_this6.isToggleScreenUp() && $('.app-aside').hasClass('has-open') && !$('.app').hasClass('has-fullwidth')) {
-          _this6.closeAside();
-        } // disable transition temporarily
+          _this6.hideAside();
+        } // handle appropriate aside by screen sizes
+
+
+        _this6.watchAside(); // disable transition temporarily
 
 
         $('.app-aside, .page-sidebar').addClass('notransition');

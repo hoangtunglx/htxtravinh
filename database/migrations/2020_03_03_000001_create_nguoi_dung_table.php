@@ -23,7 +23,7 @@ class CreateNguoiDungTable extends Migration
 			$table->id();
 			$table->foreignId('hoptacxa_id')->nullable()->constrained()->on('hoptacxa');
 			$table->string('name', 100);
-			$table->string('tendangnhap', 191);
+			$table->string('username', 191);
 			$table->string('email', 191)->unique();
 			$table->timestamp('email_verified_at')->nullable();
 			$table->string('password', 191);

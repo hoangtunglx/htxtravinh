@@ -14,15 +14,15 @@
 	<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Fira+Sans:400,500,600" />
 	
 	
-	<link rel="stylesheet" href=" <?php echo e(asset('public/admin/vendor/open-iconic/css/open-iconic-bootstrap.min.css')); ?> " />
-	<link rel="stylesheet" href=" <?php echo e(asset('public/admin/vendor/fontawesome/css/all.css')); ?> " />
-	<link rel="stylesheet" href=" <?php echo e(asset('public/admin/vendor/flatpickr/flatpickr.min.css')); ?> ">
+	<link rel="stylesheet" href="<?php echo e(asset('public/admin/vendor/open-iconic/css/open-iconic-bootstrap.min.css')); ?> " />
+	<link rel="stylesheet" href="<?php echo e(asset('public/admin/vendor/fontawesome/css/all.css')); ?> " />
+	<link rel="stylesheet" href="<?php echo e(asset('public/admin/vendor/flatpickr/flatpickr.min.css')); ?> ">
 	
 	
-	<link rel="stylesheet" href=" <?php echo e(asset('public/admin/stylesheets/theme.min.css')); ?> " data-skin="default" />
-	<link rel="stylesheet" href=" <?php echo e(asset('public/admin/stylesheets/theme-dark.min.css')); ?> " data-skin="dark" />
-	<link rel="stylesheet" href=" <?php echo e(asset('public/admin/stylesheets/custom.css')); ?> " />
-	<link rel="stylesheet" href=" <?php echo e(asset('public/admin/stylesheets/jquery.dataTables.min.css')); ?> " />
+	<link rel="stylesheet" href="<?php echo e(asset('public/admin/stylesheets/theme.min.css')); ?> " data-skin="default" />
+	<link rel="stylesheet" href="<?php echo e(asset('public/admin/stylesheets/theme-dark.min.css')); ?> " data-skin="dark" />
+	<link rel="stylesheet" href="<?php echo e(asset('public/admin/stylesheets/custom.css')); ?> " />
+	<link rel="stylesheet" href="<?php echo e(asset('public/admin/stylesheets/jquery.dataTables.min.css')); ?> " />
 	
 	<script>
 	 		var skin = localStorage.getItem('skin') || 'default';

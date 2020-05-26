@@ -9,11 +9,11 @@ class Admin
 {
 	public function handle($request, Closure $next)
 	{
-		if(Auth::user()->quyenhan == "quantrivien" || Auth::user()->quyenhan == "canboqlhtx" || Auth::user()->quyenhan == "canbohtx" || Auth::user()->quyenhan == "nongdan")
+		if(Auth::user()->quyenhan == "admin")
 		{
 			return $next($request);
 		}
 		
-		return redirect('errors/403')->with('error_message', 'Người dùng không đủ quyền hạn để thao tác chức năng này!');
+		return redirect()->route('forbidden')->with('error_message', 'Người dùng không đủ quyền hạn để thao tác chức năng này!');
 	}
 }

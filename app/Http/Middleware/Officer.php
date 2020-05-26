@@ -9,11 +9,11 @@ class Officer
 {
 	public function handle($request, Closure $next)
 	{
-		if(Auth::user()->quyenhan == "canbohtx")
+		if(Auth::user()->quyenhan == "admin" || Auth::user()->quyenhan == "manager" || Auth::user()->quyenhan == "officer")
 		{
 			return $next($request);
 		}
 		
-		return redirect('errors/403')->with('error_message', 'Người dùng không đủ quyền hạn để thao tác chức năng này!');
+		return redirect()->route('forbidden')->with('error_message', 'Người dùng không đủ quyền hạn để thao tác chức năng này!');
 	}
 }

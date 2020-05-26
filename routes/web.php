@@ -33,9 +33,10 @@ Auth::routes();
 
 // Trang tin tức
 Route::get('/', 'HomeController@index')->name('home');
+Route::get('/403', 'AuthController@forbidden')->name('forbidden');
 
 // Farmer - Nông dân
-Route::prefix('farmer')->name('farmer.')->middleware(['auth', 'farmer'])->group(function() {
+Route::prefix('farmer')->name('farmer.')->middleware('farmer')->group(function () {
 	Route::get('', function() { return view('farmer.dashboard'); })->name('dashboard');
 	
 	Route::prefix('loai-giong')->name('loaigiong.')->group(function() {
@@ -110,7 +111,7 @@ Route::prefix('farmer')->name('farmer.')->middleware(['auth', 'farmer'])->group(
 });
 
 // Officer - Cán bộ hợp tác xã
-Route::prefix('officer')->name('officer.')->middleware(['auth', 'officer'])->group(function() {
+Route::prefix('officer')->name('officer.')->middleware('officer')->group(function () {
 	Route::get('', function() { return view('officer.dashboard'); })->name('dashboard');
 	
 	Route::prefix('loai-giong')->name('loaigiong.')->group(function() {
@@ -259,7 +260,7 @@ Route::prefix('officer')->name('officer.')->middleware(['auth', 'officer'])->gro
 });
 
 // Manager - Cán bộ quản lý hợp tác xã
-Route::prefix('manager')->name('manager.')->middleware(['auth', 'manager'])->group(function() {
+Route::prefix('manager')->name('manager.')->middleware('manager')->group(function () {
 	Route::get('', function() { return view('manager.dashboard'); })->name('dashboard');
 	
 	Route::prefix('loai-giong')->name('loaigiong.')->group(function() {
@@ -328,7 +329,7 @@ Route::prefix('manager')->name('manager.')->middleware(['auth', 'manager'])->gro
 });
 
 // Admin - Quản trị viên
-Route::prefix('admin')->name('admin.')->middleware(['auth', 'admin'])->group(function() {
+Route::prefix('admin')->name('admin.')->middleware('admin')->group(function () {
 	Route::get('', function() { return view('admin.dashboard'); })->name('dashboard');
 	
 	Route::prefix('loai-giong')->name('loaigiong.')->group(function() {
